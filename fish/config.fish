@@ -25,6 +25,9 @@ fish_add_path /usr/local/opt/curl/bin
 #brew
 fish_add_path /opt/homebrew/bin
 
+#nvm
+set -gx NVM_DIR $HOME/.config/nvm
+
 # c / c++
 # c++
 # export CPPFLAGS=-I/opt/X11/include

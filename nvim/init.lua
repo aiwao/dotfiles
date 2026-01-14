@@ -52,13 +52,7 @@ require("config.lazy")
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-require("mason-lspconfig").setup_handlers({
-  function (server_name)
-    require("lspconfig")[server_name].setup({})
-  end,
-})
-
---Treesitter
+---Treesitter
 require("nvim-treesitter").setup({
   install_dir = vim.fn.stdpath('data') .. '/site',
 })
