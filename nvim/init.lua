@@ -4,6 +4,11 @@ vim.g.mapleader = " "
 --Set key maps
 vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>")
 
+--Always show the line number
+vim.o.number = true
+--Show a relative number from current line 
+vim.o.relativenumber = true
+
 --Device clipboard
 vim.o.clipboard = "unnamedplus"
 
