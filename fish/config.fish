@@ -28,6 +28,9 @@ fish_add_path /opt/homebrew/bin
 #nvm
 set -gx NVM_DIR $HOME/.config/nvm
 
+#node.js / npm / npx
+fish_add_path $HOME/.local/share/nvm/v24.13.0/bin
+
 # c / c++
 # c++
 # export CPPFLAGS=-I/opt/X11/include
