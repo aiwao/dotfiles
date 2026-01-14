@@ -22,6 +22,7 @@ local filetype_tabstop = {
 	lua=2,
 	markdown=2,
 	html=2,
+  json=2,
 }
 --false=Use tab
 local filetype_expand = {
