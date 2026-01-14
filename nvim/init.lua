@@ -53,4 +53,8 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
+require("nvim-treesitter").setup({
+  install_dir = vim.fn.stdpath("data") .. "/site",
+})
+
 vim.diagnostic.config()
