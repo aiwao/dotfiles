@@ -48,4 +48,11 @@ vim.api.nvim_create_autocmd("FileType", {
 --Lazy.nvim
 require("config.lazy")
 
+--Mason lsp
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+--Color scheme
+vim.cmd.colorscheme("tokyonight")
+
 vim.diagnostic.config()
