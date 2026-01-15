@@ -55,8 +55,8 @@ set -gx GIT_EDITOR nvim
 set -gx VISUAL nvim
 
 # postgresql
-set -gx LDFLAGS "-L/opt/homebrew/opt/postgresql@16/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/postgresql@16/include"
+set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
 
 if status is-interactive
 # Commands to run in interactive sessions can go here
