@@ -57,6 +57,7 @@ set -gx VISUAL nvim
 # postgresql
 set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
+fish_add_path /opt/homebrew/opt/libpq/bin
 
 if status is-interactive
 # Commands to run in interactive sessions can go here
