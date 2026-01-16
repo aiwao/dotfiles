@@ -4,3 +4,6 @@ vim.keymap.set("n", "<leader>to", "<cmd>NvimTreeOpen<CR>", { silent = true })
 --Bufferline
 vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", { silent = true })
+
+--Global
+vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
