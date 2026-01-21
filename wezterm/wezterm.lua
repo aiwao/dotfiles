@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local keys = require("keymaps")
 
 local config = {
-  color_scheme = "catppuccin",
+  color_scheme = "Catppuccin Mocha",
   font = wezterm.font({
     family = "JetBrains Mono",
     harfbuzz_features = { "calt=0", "liga=0", "clig=0" },
