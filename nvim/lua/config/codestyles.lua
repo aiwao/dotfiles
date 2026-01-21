@@ -12,6 +12,7 @@ local filetype_tabstop = {
   svelte=2,
   typescript=2,
   javascript=2
+  css=2,
 }
 --false=Use tab
 local filetype_expand = {
