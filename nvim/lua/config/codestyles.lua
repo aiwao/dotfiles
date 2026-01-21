@@ -9,6 +9,9 @@ local filetype_tabstop = {
 	markdown=2,
 	html=2,
   json=2,
+  svelte=2,
+  typescript=2,
+  javascript=2
 }
 --false=Use tab
 local filetype_expand = {
