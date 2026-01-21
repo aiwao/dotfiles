@@ -8,3 +8,6 @@ vim.o.relativenumber = true
 
 --Device clipboard
 vim.o.clipboard = "unnamedplus"
+
+--24 bit colour
+vim.opt.termguicolors = true

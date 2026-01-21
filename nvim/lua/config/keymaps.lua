@@ -8,11 +8,7 @@ vim.keymap.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", { silent = tru
 vim.keymap.set("n", "<leader>bc", "<cmd>bdelete<CR>", { silent = true })
 
 --Telescope
---vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>", { silent = true })
-
---Spectre
-vim.keymap.set("n", "<leader>ff", '<cmd>lua require("spectre").toggle()<CR>')
-vim.keymap.set("n", "<leader>fg", '<cmd>lua require("spectre").open_visual({ select_word = true })<CR>')
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>", { silent = true })
 
 --Global
 vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
