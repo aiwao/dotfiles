@@ -5,13 +5,13 @@ vim.o.shiftwidth = 4
 
 --Indent options by filetypes
 local filetype_tabstop = {
-	lua=2,
-	markdown=2,
-	html=2,
+  lua=2,
+  markdown=2,
+  html=2,
   json=2,
   svelte=2,
   typescript=2,
-  javascript=2
+  javascript=2,
   css=2,
 }
 --false=Use tab
