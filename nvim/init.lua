@@ -35,4 +35,7 @@ require("noice").setup({
   },
 })
 
+--intent_blankline
+require("ibl").setup()
+
 vim.diagnostic.config()
