@@ -10,5 +10,8 @@ vim.keymap.set("n", "<leader>bc", "<cmd>bdelete<CR>", { silent = true })
 --Telescope
 --vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>", { silent = true })
 
+--Grug-far
+vim.keymap.set("n", "<leader>gf", "<cmd>GrugFar<CR>", { silent = true })
+
 --Global
 vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)

@@ -4,17 +4,13 @@ require("config.keymaps")
 require("config.codestyles")
 require("config.lazy")
 
---Mason lsp
 require("mason").setup()
 require("mason-lspconfig").setup()
 
---Lualine
 require('lualine').setup()
 
---Bufferline
 require("bufferline").setup()
 
---noice
 require("noice").setup {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -37,7 +33,8 @@ require("noice").setup {
 --intent_blankline
 require("ibl").setup()
 
---crates
 require("crates").setup()
+
+require("grug-far").setup()
 
 vim.diagnostic.config()
