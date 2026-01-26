@@ -16,12 +16,25 @@ function addRulesWithModifier(
   to: string,
   deviceIf?: string,
 ) {
-  const modifiers = ["", "command", "option", "control"]
-  modifiers.forEach((m) => {
+  const modifiers: string[] = ["command", "option", "control"]
+  const allPatterns: string[][] = [[""]]
+  
+  const n = modifiers.length;
+  for (let mask = 1; mask < 1 << n; mask++) {
+    const patterns: string[] = []
+    for (let i = 0; i < n; i++) {
+      if (mask & (1 << i)) {
+        patterns.push(modifiers[i]!)
+      }
+    }
+    allPatterns.push(patterns);
+  }
+
+  allPatterns.forEach((m) => {
     let description = baseDescription
-    let keyModifier = []
-    if (m !== "") {
-      keyModifier.push(m)
+    let keyModifier: string[] = []
+    if (m[0] !== "") {
+      keyModifier = m
       description = description + ` (+${m})`
     }
 
@@ -369,5 +382,5 @@ configs.forEach(async (c) => {
     .concat(".json")
   const filepath = path.resolve(outputPath, filename)
   console.log(`Writing the configuration in ${filepath}`)
-  await Bun.write(filepath, JSON.stringify(c, null, 2))
+  await Bun.write(filepath, JSON.stringify(c, null, 2)) 
 })
