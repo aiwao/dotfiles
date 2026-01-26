@@ -1,4 +1,0 @@
-karabiner-config-generator/*
-!karabiner-config-generator/
-!karabiner-config-generator/index.ts
-!karabiner-config-generator/keyboards.json

@@ -2,7 +2,310 @@
   "title": "DK75",
   "rules": [
     {
-      "description": "Fix Double-quote position",
+      "description": "Fix 0 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 0 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 0 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 0 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 1 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 1 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 1 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 1 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 2 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 2 key positon (+command)",
       "manipulators": [
         {
           "type": "basic",
@@ -10,15 +313,1173 @@
             "key_code": "2",
             "modifiers": {
               "mandatory": [
-                "shift"
+                "command"
               ]
             }
           },
           "to": [
             {
-              "key_code": "quote",
+              "key_code": "3",
               "modifiers": [
-                "shift"
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 2 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 2 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 3 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 3 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 3 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 3 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 4 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 4 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 4 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 4 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 5 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 5 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 5 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 5 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 6 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 6 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 6 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 6 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 7 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 7 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 7 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 7 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 8 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 8 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 8 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 8 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 9 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "10",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 9 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "10",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 9 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "10",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 9 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "10",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 10 key positon",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 10 key positon (+command)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 10 key positon (+option)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix 10 key positon (+control)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "control"
               ]
             }
           ],
@@ -206,7 +1667,576 @@
       ]
     },
     {
+      "description": "Add Japanese-eisuu",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_eisuu",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Add Japanese-kana",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_option",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_kana",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Left-option position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_option",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Replace Caps-lock to Left-control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Attention-mark position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Double-quote position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Sharp position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Dollar-mark position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Parcent-mark position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix And-mark position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Single-quote position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Round-bracket position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "7",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Close-round-bracket position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "8",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Minus position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Fix Equal position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Underbar position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Hat position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Tilde position",
       "manipulators": [
         {
           "type": "basic",
@@ -220,8 +2250,208 @@
           },
           "to": [
             {
-              "key_code": "equal_sign",
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix At-mark position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Back-quote position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
               "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Open-bracket position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Close-bracket position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": []
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Open-brace position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 12994,
+                  "product_id": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Fix Close-brace position",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "shift"
+              ]
             }
           ],
           "conditions": [
