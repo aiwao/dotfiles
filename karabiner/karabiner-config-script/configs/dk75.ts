@@ -1,6 +1,6 @@
 import type ConfigInterface from "../src/config/config_interface";
 import { ConfigBuilder } from "../src/karabiner/karabiner_builder";
-import { basicRule } from "../src/karabiner/karabiner_builder_helper";
+import { basicRule, ruleWithModifiers } from "../src/karabiner/karabiner_builder_helper";
 import type { ComplexModificationConfig } from "../src/karabiner/karabiner_types";
 
 //add rules for my china keyboard
@@ -23,30 +23,31 @@ export default class DK75Config implements ConfigInterface {
         from = "9"
         to = "0"
       }
-      addRulesWithModifier(
-        dk75Config,
-        `Fix ${i} key positon`,
-        from,
-        to,
-      )
+      dk75Config
+        .addAllRules(
+          ruleWithModifiers({
+            description: `Fix ${i} key positon`,
+            fromKeyCode: from,
+            toKeyCode: to,
+          })
+        )
     }
 
     dk75Config
-      .rule(
-        basicRule({
+      .addAllRules(
+        ruleWithModifiers({
           description: "Fix Plus position",
           fromKeyCode: "semicolon",
-          toKeyCode: "equal_sign",
-          fromModifiers: ["shift"],
-          toModifiers: ["shift"],
+          toKeyCode: "equal_sign", 
+          ignoreModifiers: [""],
         })
       )
-      .rule(
-        basicRule({
+      .addAllRules(
+        ruleWithModifiers({
           description: "Fix Colon position",
           fromKeyCode: "quote",
           toKeyCode: "semicolon",
-          toModifiers: ["shift"],
+          ignoreModifiers: [""],
         })
       )
       .rule(
@@ -274,45 +275,4 @@ export default class DK75Config implements ConfigInterface {
       
       registerConfig(dk75Config.build())
   } 
-}
-
-//add rules to builder with 3 modifiers (cmd, opt, ctrl)
-function addRulesWithModifier(
-  builder: ConfigBuilder,
-  baseDescription: string,
-  from: string,
-  to: string,
-) {
-  const modifiers: string[] = ["command", "option", "control"]
-  const allPatterns: string[][] = [[""]]
-  
-  const n = modifiers.length;
-  for (let mask = 1; mask < 1 << n; mask++) {
-    const patterns: string[] = []
-    for (let i = 0; i < n; i++) {
-      if (mask & (1 << i)) {
-        patterns.push(modifiers[i]!)
-      }
-    }
-    allPatterns.push(patterns);
-  }
-
-  allPatterns.forEach((m) => {
-    let description = baseDescription
-    let keyModifier: string[] = []
-    if (m[0] !== "") {
-      keyModifier = m
-      description = description + ` (+${m})`
-    }
-
-    builder.rule(
-      basicRule({
-        description: description,
-        fromKeyCode: from,
-        toKeyCode: to,
-        fromModifiers: keyModifier,
-        toModifiers: keyModifier,
-      })
-    )
-  })
 }

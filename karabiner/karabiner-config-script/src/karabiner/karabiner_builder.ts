@@ -148,6 +148,11 @@ export class ConfigBuilder {
     return this
   }
 
+  addAllRules(rules: Rule[]) {
+    rules.forEach((r) => this.rule(r))
+    return this
+  }
+
   rule(rule: Rule) {
     if (this.deviceArray.length !== 0) {
       rule.manipulators.forEach((m) => {
