@@ -4159,6 +4159,37 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "FXXAXAXAXAXA",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 28,
+                                                "vendor_id": 12994
+                                            },
+                                            {
+                                                "product_id": 21,
+                                                "vendor_id": 12994
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "FOJAEOFJ",
+                                    "modifiers": {
+                                        "mandatory": [],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [{ "key_code": "AAAAA" }],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
@@ -4196,7 +4227,6 @@
                 }
             ],
             "name": "Default profile",
-            "selected": true,
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]

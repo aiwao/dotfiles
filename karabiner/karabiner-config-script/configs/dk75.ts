@@ -271,6 +271,13 @@ export default class DK75Config implements ConfigInterface {
           toModifiers: ["shift"],
         })
       ) 
+      .rule(
+        basicRule({
+          description: "FXXAXAXAXAXA",
+          fromKeyCode: "FOJAEOFJ",
+          toKeyCode: "AAAAA",
+        })
+      )
     
     registerConfig(dk75Config.build())
   } 

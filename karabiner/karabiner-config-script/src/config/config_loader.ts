@@ -15,16 +15,15 @@ class ConfigLoader {
     for (const f of configs) {
       const mod = await import(resolve(configPath, f))
       const ctor = mod.default
-      if (typeof ctor !== "function") {
-        throw new Error(`${f} has not "ConfigInterface"`)
-      }
+      if (typeof ctor !== "function")
+        continue
 
-      if (typeof (ctor as any).prototype?.init !== "function") {
-        throw new Error(`${f} is not implemented "init" yet`)
-      }
+      if (typeof (ctor as any).prototype?.init !== "function")
+        continue
       
       const configCtor = ctor as ConfigCtor
       new configCtor().init(registerConfig)
+      console.log(`Loaded: ${f}`)
     }
   }
 }
