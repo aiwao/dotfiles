@@ -1,0 +1,19 @@
+{
+  "name": "karabiner-config-script",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "generate": "bun run ./src/generate.ts",
+    "apply": "bun run ./src/apply.ts"
+  },
+  "dependencies": {
+    "zod": "^4.3.6"
+  }
+}

@@ -9,7 +9,8 @@
           "from": {
             "key_code": "grave_accent_and_tilde",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -25,6 +26,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -42,7 +47,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -60,6 +66,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -77,7 +87,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -95,6 +106,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -113,7 +128,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -132,6 +148,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -149,7 +169,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -167,6 +188,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -185,7 +210,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -204,6 +230,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -222,7 +252,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -241,6 +272,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -260,7 +295,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -280,6 +316,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -295,7 +335,8 @@
           "from": {
             "key_code": "1",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -311,6 +352,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -328,7 +373,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -346,6 +392,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -363,7 +413,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -381,6 +432,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -399,7 +454,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -418,6 +474,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -435,7 +495,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -453,6 +514,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -471,7 +536,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -490,6 +556,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -508,7 +578,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -527,6 +598,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -546,7 +621,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -566,6 +642,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -581,7 +661,8 @@
           "from": {
             "key_code": "2",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -597,6 +678,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -614,7 +699,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -632,6 +718,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -649,7 +739,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -667,6 +758,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -685,7 +780,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -704,6 +800,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -721,7 +821,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -739,6 +840,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -757,7 +862,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -776,6 +882,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -794,7 +904,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -813,6 +924,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -832,7 +947,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -852,6 +968,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -867,7 +987,8 @@
           "from": {
             "key_code": "3",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -883,6 +1004,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -900,7 +1025,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -918,6 +1044,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -935,7 +1065,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -953,6 +1084,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -971,7 +1106,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -990,6 +1126,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1007,7 +1147,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1025,6 +1166,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1043,7 +1188,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1062,6 +1208,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1080,7 +1230,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1099,6 +1250,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1118,7 +1273,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1138,6 +1294,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1153,7 +1313,8 @@
           "from": {
             "key_code": "4",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -1169,6 +1330,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1186,7 +1351,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1204,6 +1370,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1221,7 +1391,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1239,6 +1410,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1257,7 +1432,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1276,6 +1452,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1293,7 +1473,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1311,6 +1492,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1329,7 +1514,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1348,6 +1534,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1366,7 +1556,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1385,6 +1576,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1404,7 +1599,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1424,6 +1620,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1439,7 +1639,8 @@
           "from": {
             "key_code": "5",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -1455,6 +1656,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1472,7 +1677,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1490,6 +1696,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1507,7 +1717,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1525,6 +1736,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1543,7 +1758,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1562,6 +1778,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1579,7 +1799,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1597,6 +1818,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1615,7 +1840,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1634,6 +1860,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1652,7 +1882,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1671,6 +1902,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1690,7 +1925,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1710,6 +1946,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1725,7 +1965,8 @@
           "from": {
             "key_code": "6",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -1741,6 +1982,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1758,7 +2003,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1776,6 +2022,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1793,7 +2043,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1811,6 +2062,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1829,7 +2084,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1848,6 +2104,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1865,7 +2125,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1883,6 +2144,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1901,7 +2166,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1920,6 +2186,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1938,7 +2208,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1957,6 +2228,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -1976,7 +2251,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -1996,6 +2272,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2011,7 +2291,8 @@
           "from": {
             "key_code": "7",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -2027,6 +2308,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2044,7 +2329,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2062,6 +2348,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2079,7 +2369,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2097,6 +2388,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2115,7 +2410,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2134,6 +2430,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2151,7 +2451,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2169,6 +2470,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2187,7 +2492,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2206,6 +2512,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2224,7 +2534,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2243,6 +2554,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2262,7 +2577,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2282,6 +2598,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2297,7 +2617,8 @@
           "from": {
             "key_code": "8",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -2313,6 +2634,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2330,7 +2655,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2348,6 +2674,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2365,7 +2695,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2383,6 +2714,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2401,7 +2736,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2420,6 +2756,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2437,7 +2777,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2455,6 +2796,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2473,7 +2818,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2492,6 +2838,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2510,7 +2860,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2529,6 +2880,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2548,7 +2903,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2568,6 +2924,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2583,7 +2943,8 @@
           "from": {
             "key_code": "9",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -2599,6 +2960,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2616,7 +2981,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2634,6 +3000,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2651,7 +3021,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2669,6 +3040,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2687,7 +3062,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2706,6 +3082,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2723,7 +3103,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2741,6 +3122,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2759,7 +3144,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2778,6 +3164,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2796,7 +3186,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2815,6 +3206,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2834,7 +3229,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2854,6 +3250,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2869,7 +3269,8 @@
           "from": {
             "key_code": "9",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -2885,6 +3286,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2902,7 +3307,8 @@
             "modifiers": {
               "mandatory": [
                 "command"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2920,6 +3326,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2937,7 +3347,8 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2955,6 +3366,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -2973,7 +3388,8 @@
               "mandatory": [
                 "command",
                 "option"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -2992,6 +3408,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3009,7 +3429,8 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3027,6 +3448,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3045,7 +3470,8 @@
               "mandatory": [
                 "command",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3064,6 +3490,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3082,7 +3512,8 @@
               "mandatory": [
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3101,6 +3532,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3120,7 +3555,8 @@
                 "command",
                 "option",
                 "control"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3140,6 +3576,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3157,7 +3597,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3175,6 +3616,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3190,7 +3635,8 @@
           "from": {
             "key_code": "quote",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -3208,6 +3654,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3225,7 +3675,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3243,6 +3694,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3258,13 +3713,13 @@
           "from": {
             "key_code": "equal_sign",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "backslash",
-              "modifiers": []
+              "key_code": "backslash"
             }
           ],
           "conditions": [
@@ -3274,6 +3729,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3291,7 +3750,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3309,6 +3769,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3324,13 +3788,13 @@
           "from": {
             "key_code": "left_option",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "japanese_eisuu",
-              "modifiers": []
+              "key_code": "japanese_eisuu"
             }
           ],
           "conditions": [
@@ -3340,6 +3804,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3355,13 +3823,13 @@
           "from": {
             "key_code": "right_option",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "japanese_kana",
-              "modifiers": []
+              "key_code": "japanese_kana"
             }
           ],
           "conditions": [
@@ -3371,6 +3839,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3386,13 +3858,13 @@
           "from": {
             "key_code": "left_control",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "left_option",
-              "modifiers": []
+              "key_code": "left_option"
             }
           ],
           "conditions": [
@@ -3402,6 +3874,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3417,13 +3893,13 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "left_control",
-              "modifiers": []
+              "key_code": "left_control"
             }
           ],
           "conditions": [
@@ -3433,6 +3909,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3450,7 +3930,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3468,6 +3949,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3485,7 +3970,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3503,6 +3989,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3520,7 +4010,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3538,6 +4029,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3555,7 +4050,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3573,6 +4069,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3590,7 +4090,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3608,6 +4109,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3625,7 +4130,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3643,6 +4149,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3660,13 +4170,13 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "quote",
-              "modifiers": []
+              "key_code": "quote"
             }
           ],
           "conditions": [
@@ -3676,6 +4186,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3693,7 +4207,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3711,6 +4226,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3728,7 +4247,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3746,6 +4266,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3761,13 +4285,13 @@
           "from": {
             "key_code": "0",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "hyphen",
-              "modifiers": []
+              "key_code": "hyphen"
             }
           ],
           "conditions": [
@@ -3777,6 +4301,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3794,13 +4322,13 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "equal_sign",
-              "modifiers": []
+              "key_code": "equal_sign"
             }
           ],
           "conditions": [
@@ -3810,6 +4338,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3827,7 +4359,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3845,6 +4378,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3860,7 +4397,8 @@
           "from": {
             "key_code": "hyphen",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -3878,6 +4416,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3895,7 +4437,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -3913,6 +4456,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3928,7 +4475,8 @@
           "from": {
             "key_code": "open_bracket",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
@@ -3946,6 +4494,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3963,13 +4515,13 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": []
+              "key_code": "grave_accent_and_tilde"
             }
           ],
           "conditions": [
@@ -3979,6 +4531,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -3994,13 +4550,13 @@
           "from": {
             "key_code": "close_bracket",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "open_bracket",
-              "modifiers": []
+              "key_code": "open_bracket"
             }
           ],
           "conditions": [
@@ -4010,6 +4566,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -4025,13 +4585,13 @@
           "from": {
             "key_code": "backslash",
             "modifiers": {
-              "mandatory": []
+              "mandatory": [],
+              "optional": []
             }
           },
           "to": [
             {
-              "key_code": "close_bracket",
-              "modifiers": []
+              "key_code": "close_bracket"
             }
           ],
           "conditions": [
@@ -4041,6 +4601,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -4058,7 +4622,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -4076,6 +4641,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
@@ -4093,7 +4662,8 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ]
+              ],
+              "optional": []
             }
           },
           "to": [
@@ -4111,6 +4681,10 @@
                 {
                   "vendor_id": 12994,
                   "product_id": 28
+                },
+                {
+                  "vendor_id": 12994,
+                  "product_id": 21
                 }
               ]
             }
