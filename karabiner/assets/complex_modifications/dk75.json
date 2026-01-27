@@ -4691,41 +4691,6 @@
           ]
         }
       ]
-    },
-    {
-      "description": "FXXAXAXAXAXA",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "FOJAEOFJ",
-            "modifiers": {
-              "mandatory": [],
-              "optional": []
-            }
-          },
-          "to": [
-            {
-              "key_code": "AAAAA"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 12994,
-                  "product_id": 28
-                },
-                {
-                  "vendor_id": 12994,
-                  "product_id": 21
-                }
-              ]
-            }
-          ]
-        }
-      ]
     }
   ]
 }

@@ -39,15 +39,20 @@ async function run() {
     message: "Select a config file",
     choices: configChoices,
   }) 
+  const rules: Rule[] = []
+
   for (const configFilename of configFilenameArray) {
     const configFile = Bun.file(resolve(complexModificationsPath, configFilename))
     const configFiledata = await configFile.json()
     const configParsed = ComplexModificationConfig.safeParse(configFiledata)
     if (!configParsed.success) {
-      throw configParsed.error
+      console.error(`Parse ${configFilename} failed`)
+      continue
     }
+    rules.push(...configParsed.data.rules) 
+  }
 
-    const profileChoice = 
+   const profileChoice = 
       karabiner.profiles
         .map((value, index) => {
           return { name: value.name, value: karabiner.profiles[index]!, checked: true }
@@ -55,49 +60,38 @@ async function run() {
     const profileArray = await checkbox({
       message: "Select the profile to apply a config",
       choices: profileChoice,
-    }) 
+    })
 
-    let rewriteAll = false
     for (const profile of profileArray) {
-      let rewriteSelect = 0
-      if (!rewriteAll) {
-        rewriteSelect = await select({
-          message: "Rewrite a rules?",
-          choices: [
-            {
-              name: "Yes",
-              value: 0,
-            },
-            {
-              name: "No",
-              value: 1,
-            },
-            {
-              name: "All",
-              value: 2,
-            }
-          ]
-        })
-      }
-      const rewrite = (rewriteSelect === 0) || rewriteAll
-      rewriteAll = rewriteSelect === 2
+      const rewrite = await select({
+        message: "Overwrite a rules?",
+        choices: [
+          {
+            name: "Yes",
+            value: true,
+          },
+          {
+            name: "No",
+            value: false,
+          },
+        ]
+      })
 
       if (!profile.complex_modifications)
         profile.complex_modifications = { rules: [] }
 
       if (rewrite) {
-        profile.complex_modifications!.rules = configParsed.data.rules
+        profile.complex_modifications!.rules = rules
       } else {
         if (!profile.complex_modifications.rules)
           profile.complex_modifications!.rules = []
-        profile.complex_modifications.rules.push(...configParsed.data.rules)
+        profile.complex_modifications.rules.push(...rules)
       }
 
-      console.log(`Applying ${configParsed.data.title}'s rules to ${karabinerFilePath}`)
+      console.log(`Applying rules to ${karabinerFilePath}`)
       await Bun.write(karabinerFilePath, JSON.stringify(karabiner, null, 2)) 
-      console.log(`Applied ${configParsed.data.rules.length} rules`)
+      console.log(`Applied ${rules.length} rules`)
     }
-  }
 }
 
 run()
