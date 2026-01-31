@@ -8,5 +8,10 @@
     "name": "DK75-USB",
     "vendor_id": 12994,
     "product_id": 21
+  },
+  {
+    "name": "C3Pro",
+    "vendor_id": 13364,
+    "product_id": 1078
   }
 ]

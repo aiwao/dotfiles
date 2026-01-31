@@ -1,7 +1,7 @@
-import type ConfigInterface from "../src/config/config_interface";
-import { ConfigBuilder } from "../src/karabiner/karabiner_builder";
-import { basicRule } from "../src/karabiner/karabiner_builder_helper";
-import type { ComplexModificationConfig } from "../src/karabiner/karabiner_types";
+import type ConfigInterface from "../../src/config/config_interface";
+import { ConfigBuilder } from "../../src/karabiner/karabiner_builder";
+import { basicRule } from "../../src/karabiner/karabiner_builder_helper";
+import type { ComplexModificationConfig } from "../../src/karabiner/karabiner_types";
 
 //add rules for my china keyboard
 export default class DK75Config implements ConfigInterface {
