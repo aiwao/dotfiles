@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>tt", ":Oil<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tt", "<cmd>Oil<CR>", { silent = true })
 
 --Snacks
 local Snacks = require("snacks")
@@ -10,3 +10,7 @@ vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end)
 vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end)
 --Buffer
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end)
+vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
