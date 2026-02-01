@@ -9,6 +9,8 @@ require("plugin.nvim-treesitter")
 require("plugin.oil")
 require("plugin.catppuccin")
 require("plugin.lualine")
+require("plugin.noice")
+require("plugin.intent-blankline")
 
 --Load configs
 require("config.generals")
