@@ -1,4 +1,10 @@
-vim.pack.add { "https://github.com/neovim/nvim-lspconfig" }
+vim.pack.add {
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason.nvim",
+}
+
+require("mason").setup()
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     vim.o.signcolumn = 'yes:1'
@@ -15,7 +21,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.highlight.on_yank() end,
 })
 
-vim.lsp.enable {
+local ensure_installed = {
   "css-lsp",
   "css-variables-language-server",
   "cssmodules-language-server",
@@ -31,3 +37,4 @@ vim.lsp.enable {
   "tailwindcss-language-server",
   "typescript-language-server",
 }
+vim.lsp.enable(ensure_installed)
