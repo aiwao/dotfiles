@@ -4,6 +4,39 @@
       "complex_modifications": {
         "rules": [
           {
+            "description": "Caps-lock to tab",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "mandatory": [],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "tab"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 13364,
+                        "product_id": 1078
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Fix 0 key positon",
             "manipulators": [
               {
@@ -4728,10 +4761,30 @@
             "vendor_id": 12994
           },
           "ignore_vendor_events": true
+        },
+        {
+          "disable_built_in_keyboard_if_exists": true,
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 1078,
+            "vendor_id": 13364
+          },
+          "ignore": false,
+          "ignore_vendor_events": true
+        },
+        {
+          "disable_built_in_keyboard_if_exists": true,
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 1078,
+            "vendor_id": 13364
+          },
+          "ignore_vendor_events": true
         }
       ],
       "virtual_hid_keyboard": {
-        "keyboard_type_v2": "ansi"
+        "keyboard_type_v2": "jis"
       }
     }
   ]
