@@ -16,17 +16,17 @@ local filetype_tabstop = {
 }
 --false=Use tab
 local filetype_expand = {
-  go=false,
+	go=false,
 }
 --Set indent options for all languages
 local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true})
 vim.api.nvim_create_autocmd("FileType", {
   group = usrftcfg,
   callback = function (args)
-    local fte = filetype_expand[args.match]
-    if fte then
-      vim.bo.expandtab = fte
-    end
+		local fte = filetype_expand[args.match]
+		if fte then
+			vim.bo.expandtab = fte
+		end
 
     local ftts = filetype_tabstop[args.match]
     if ftts then
