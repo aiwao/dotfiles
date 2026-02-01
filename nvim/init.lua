@@ -1,5 +1,8 @@
 --Load plugins
-vim.pack.add { "https://github.com/nvim-tree/nvim-web-devicons" }
+vim.pack.add { 
+  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/neovim/nvim-lspconfig",
+}
 require("plugin.snacks")
 require("plugin.bufferline")
 require("plugin.nvim-treesitter")
