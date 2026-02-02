@@ -17,7 +17,7 @@ local config = {
 
 wezterm.on('gui-startup', function()
     local _, _, window = wezterm.mux.spawn_window({})
-    window:gui_window():toggle_fullscreen()
+    window:gui_window():toggle_fullscreen():maximize()
 end)
 
 return config
