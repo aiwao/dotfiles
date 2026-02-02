@@ -27,9 +27,13 @@ vim.keymap.set("i", "<S-Tab>", function()
   end
   return "<S-Tab>"
 end, { expr = true, noremap = true })
--- vim.keymap.set("i", "<CR>", function()
---   if vim.fn.pumvisible() == 1 then
---     return "<C-y>"
---   end
---   return "<CR>"
--- end, { expr = true, noremap = true })
+vim.keymap.set("i", "<CR>", function()
+  if vim.fn.pumvisible() == 1 then
+    if vim.fn.complete_info({ "selected" }).selected == -1 then
+      return "<CR><CR>"
+    else
+      return "<C-y>"
+    end
+  end
+  return "<CR>"
+end, { expr = true, noremap = true })
