@@ -46,6 +46,7 @@ async function run() {
     const configFiledata = await configFile.json()
     const configParsed = ComplexModificationConfig.safeParse(configFiledata)
     if (!configParsed.success) {
+      console.error(configParsed.error)
       console.error(`Parse ${configFilename} failed`)
       continue
     }

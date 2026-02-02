@@ -13,6 +13,7 @@ local config = {
   keys = keys,
   send_composed_key_when_left_alt_is_pressed = true,
 	send_composed_key_when_right_alt_is_pressed = true,
+  native_macos_fullscreen_mode = false,
 }
 
 wezterm.on('gui-startup', function()
