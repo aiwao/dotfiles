@@ -1,23 +1,13 @@
 vim.pack.add { "https://github.com/folke/snacks.nvim" }
 local Snacks = require("snacks")
 Snacks.setup {
-  opts = {
-    bigfile = { enabled = true },
-    dashboard = { enabled = true },
-    explorer = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
-    notifier = {
-      enabled = true,
-      timeout = 3000,
-    },
-    picker = { enabled = true },
-    quickfile = { enabled = true },
-    scope = { enabled = true },
-    scroll = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
+  bigfile = { enabled = true },
+  notifier = {
+    enabled = true,
+    timeout = 3000,
   },
+  picker = { enabled = true },
+  quickfile = { enabled = true },
 }
 
 vim.api.nvim_create_autocmd("User", {
