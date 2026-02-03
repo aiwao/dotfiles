@@ -14,26 +14,3 @@ vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { silent = tru
 vim.keymap.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", { silent = true })
 --Diagnostic
 vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
---Completion
-vim.keymap.set("i", "<Tab>", function()
-  if vim.fn.pumvisible() == 1 then
-    return "<C-n>"
-  end
-  return "<Tab>"
-end, { expr = true, noremap = true })
-vim.keymap.set("i", "<S-Tab>", function()
-  if vim.fn.pumvisible() == 1 then
-    return "<C-p>"
-  end
-  return "<S-Tab>"
-end, { expr = true, noremap = true })
-vim.keymap.set("i", "<CR>", function()
-  if vim.fn.pumvisible() == 1 then
-    if vim.fn.complete_info({ "selected" }).selected == -1 then
-      return "<CR><CR>"
-    else
-      return "<C-y>"
-    end
-  end
-  return "<CR>"
-end, { expr = true, noremap = true })
