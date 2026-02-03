@@ -2,6 +2,10 @@ vim.pack.add { "https://github.com/folke/snacks.nvim" }
 local Snacks = require("snacks")
 Snacks.setup {
   bigfile = { enabled = true },
+  notifier = {
+    enabled = true,
+    timeout = 3000,
+  },
   picker = { enabled = true },
   quickfile = { enabled = true },
 }
