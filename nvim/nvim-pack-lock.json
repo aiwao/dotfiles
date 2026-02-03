@@ -5,8 +5,9 @@
       "src": "https://github.com/numToStr/Comment.nvim"
     },
     "blink.cmp": {
-      "rev": "fab799d086fd63fa5b389007f63767b23885ebf8",
-      "src": "https://github.com/saghen/blink.cmp"
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1.8.0'"
     },
     "bufferline.nvim": {
       "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
@@ -69,7 +70,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "rustaceanvim": {
-      "rev": "2718cde5fe82463d63c78850b6cea59b7d0530e1",
+      "rev": "3ace64feb1ce3cf3c63e6297e1378a82fe548618",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
