@@ -12,13 +12,13 @@ local config = {
   use_ime = true,
   keys = keys,
   send_composed_key_when_left_alt_is_pressed = true,
-	send_composed_key_when_right_alt_is_pressed = true,
+  send_composed_key_when_right_alt_is_pressed = true,
   native_macos_fullscreen_mode = false,
 }
 
 wezterm.on('gui-startup', function()
-    local _, _, window = wezterm.mux.spawn_window({})
-    window:gui_window():toggle_fullscreen():maximize()
+  local _, _, window = wezterm.mux.spawn_window({})
+  window:gui_window():maximize()
 end)
 
 return config

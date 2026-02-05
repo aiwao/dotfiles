@@ -5,6 +5,7 @@ vim.o.shiftwidth = 4
 
 --Indent options by filetypes
 local filetype_tabstop = {
+  nix=2,
   lua=2,
   markdown=2,
   html=2,
