@@ -15,6 +15,7 @@ in
       tmux
       git
       git-lfs
+      gh
       ripgrep
       fd
       fzf
