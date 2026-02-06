@@ -1,3 +1,4 @@
+--nvim-treesitter was added by nix @nix/modules/home/programs/neovim.nix
 require("nvim-treesitter").setup()
 
 vim.api.nvim_create_autocmd("FileType", {
