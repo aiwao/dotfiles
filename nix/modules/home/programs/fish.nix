@@ -26,10 +26,6 @@ let
       name = "hydro";
       inherit (pkgs.fishPlugins.hydro) src;
     }
-    {
-      name = "spark";
-      inherit (pkgs.fishPlugins.spark) src;
-    }
   ];
 
   # Create a file that adds plugin paths to fish_function_path and fish_complete_path
