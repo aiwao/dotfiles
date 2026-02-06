@@ -8,5 +8,5 @@ SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
 SETUVAR __fish_initialized:4300
 SETUVAR _hydro_git_66098:main\u2022\x20
-SETUVAR _hydro_git_66469:main\u2022\x20\u21912\x20
+SETUVAR _hydro_git_66469:main\u2022\x20
 SETUVAR fish_user_paths:/nix/var/nix/profiles/default/bin\x1e/etc/profiles/per\x2duser/aa/bin\x1e/run/current\x2dsystem/sw/bin
