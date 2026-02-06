@@ -10,6 +10,7 @@ in
     [
       neovim
       wezterm
+      fish
       curl
       devenv
       tmux

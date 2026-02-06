@@ -18,7 +18,7 @@ for file in $FISH_CONFIG_DIR/config/*.fish
 end
 
 # nix bin path
-fish_add_path = $HOME/.nix-profile/bin
+fish_add_path = /etc/profiles/per-user/aa/bin
 
 # general bin paths
 fish_add_path $HOME/.local/bin
@@ -69,3 +69,8 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# theme
+set -gx theme_nerd_fonts yes
+set -gx BIT_THEME monochrome
+source $FISH_CONFIG_DIR/themes/CatppuccinMocha.fish
