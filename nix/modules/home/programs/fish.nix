@@ -6,7 +6,30 @@
 let
   # Define Fish plugins
   fishPlugins = [
-    
+    {
+      name = "autopair-fish";
+      inherit (pkgs.fishPlugins.autopair-fish) src;
+    }
+    {
+      name = "bass";
+      inherit (pkgs.fishPlugins.bass) src;
+    }
+    {
+      name = "fzf";
+      inherit (pkgs.fishPlugins.fzf) src;
+    }
+    {
+      name = "fish-bd";
+      inherit (pkgs.fishPlugins.fish-bd) src;
+    }
+    {
+      name = "hydro";
+      inherit (pkgs.fishPlugins.hydro) src;
+    }
+    {
+      name = "spark";
+      inherit (pkgs.fishPlugins.spark) src;
+    }
   ];
 
   # Create a file that adds plugin paths to fish_function_path and fish_complete_path
