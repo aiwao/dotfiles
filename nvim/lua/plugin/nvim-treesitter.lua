@@ -1,31 +1,14 @@
+local treesitter_grammars = vim.env.TREESITTER_GRAMMARS
+if treesitter_grammars then
+	vim.opt.runtimepath:append(treesitter_grammars)
+end
+
 vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter" }
-local languages = {
-  "go",
-  "dockerfile",
-  "dart",
-  "ecma",
-  "sql",
-  "rust",
-  "typescript",
-  "javascript",
-  "html",
-  "html_tags",
-  "css",
-  "svelte",
-  "tsx",
-  "jsx",
-}
+require("nvim-treesitter").setup()
 
-require("nvim-treesitter.config").setup{
-  ensure_installed = languages,
-  auto_install = true,
-  highlight = { enable = true },
-  indent = { enable = true },
-}
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = languages,
-  callback = function()
-    vim.treesitter.start()
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function(ctx)
+    pcall(vim.treesitter.start)
   end,
 })
