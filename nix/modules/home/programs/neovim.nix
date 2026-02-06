@@ -4,17 +4,12 @@
   config,
   ...
 }:
-let
-  treesitterGrammars = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
-in
 {
   programs.neovim = {
     enable = true;
 
-    extraWrapperArgs = [
-      "--set"
-      "TREESITTER_GRAMMARS"
-      "${treesitterGrammars}"
+    plugins = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
     
     extraPackages =
