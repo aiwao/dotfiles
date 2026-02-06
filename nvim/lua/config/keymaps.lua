@@ -14,3 +14,5 @@ vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { silent = tru
 vim.keymap.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", { silent = true })
 --Diagnostic
 vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
+--Terminal
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
