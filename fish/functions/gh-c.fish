@@ -9,5 +9,6 @@ function gh-c
     or return
 
     cd $project
+    git branch -M main
     git remote -v
 end
