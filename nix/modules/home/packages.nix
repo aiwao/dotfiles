@@ -18,6 +18,7 @@ in
       git
       git-lfs
       gh
+      ghq
       ripgrep
       fd
       fzf
