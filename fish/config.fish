@@ -38,14 +38,16 @@ fish_add_path /usr/local/opt/curl/bin
 # Add home-manager packages to PATH
 fish_add_path ~/.local/state/home-manager/gcroots/current-home/home-path/bin
 
-#brew
-fish_add_path /opt/homebrew/bin
-
-#nvm
-set -gx NVM_DIR $HOME/.config/nvm
-
-#node.js / npm / npx
-fish_add_path $HOME/.local/share/nvm/v24.13.0/bin
+# set -l CONFIG_CACHE $FISH_CACHE_DIR/config.fish
+# if not test -f "$CONFIG_CACHE"; or test "$FISH_CONFIG" -nt "$CONFIG_CACHE"
+#     mkdir -p $FISH_CACHE_DIR
+#     echo '' >$CONFIG_CACHE
+#
+#     # tools
+#     ensure_installed direnv hook fish >>$CONFIG_CACHE
+#     ensure_installed zoxide init fish >>$CONFIG_CACHE
+# end
+# source $CONFIG_CACHE
 
 # c / c++
 # c++
@@ -58,31 +60,15 @@ fish_add_path $HOME/.local/share/nvm/v24.13.0/bin
 set -gx USE_CCACHE 1
 set -gx CCACHE_DIR $HOME/.ccache
 
-#go
-set -gx GOPATH $HOME/go
-fish_add_path $GOPATH/bin
-
-#wezterm
-fish_add_path /Applications/WezTerm.app/Contents/MacOS
-
 # neovim
 set -gx EDITOR nvim
 set -gx GIT_EDITOR nvim
 set -gx VISUAL nvim
 set -gx MANPAGER "nvim -c ASMANPAGER -"
 
-# postgresql
-set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
-fish_add_path /opt/homebrew/opt/libpq/bin
-
 if status is-interactive
 # Commands to run in interactive sessions can go here
 end
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
 
 # theme
 set -gx theme_nerd_fonts yes
