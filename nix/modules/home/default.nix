@@ -11,28 +11,25 @@ let
   helpers = import ../lib/helpers { inherit lib; };
 in
 {
+  _module.args = {
+    inherit helpers dotfilesDir system homedir;
+  };
+
   imports = [
+    ./packages.nix
+
     (import ./programs {
       inherit
         pkgs
         lib
         config
+        dotfilesDir
         system
         helpers
         ;
     })
 
-    (import ./dotfiles.nix) {
-      inherit
-        pkgs
-        lib
-        config
-        dotfilesDir
-        helpers
-        ;
-    }
-
-    ./packages.nix
+    ./dotfiles.nix
   ];
 
   home.stateVersion = "25.11";

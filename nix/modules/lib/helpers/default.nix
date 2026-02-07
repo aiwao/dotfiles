@@ -4,5 +4,5 @@
   activation = import ./activation.nix { inherit lib; };
 
   # User configuration (requires config to be passed)
-  mkUser = config: import ./user.nix { inherit config; };
+  mkUser = import ./user.nix { inherit lib; };
 }

@@ -1,4 +1,4 @@
-{ config }:
+_:
 let
   username = "aiwao";
   githubId = "233898056";
