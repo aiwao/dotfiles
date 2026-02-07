@@ -80,6 +80,9 @@
                 lib,
                 ...
               }:
+              let
+                helpers = import ./nix/modules/lib/helpers { inherit lib; };
+              in
               {
                 imports = [
                   (import ./nix/modules/home {
@@ -97,8 +100,10 @@
                       pkgs
                       config
                       lib
+                      helpers
                       ;
                     homedir = linuxHomedir;
+                    dotfilesDir = "${linuxHomedir}/ghq/github.com/aiwao/dotfiles";
                   })
                 ];
               }
@@ -205,6 +210,9 @@
                       lib,
                       ...
                     }:
+                    let
+                      helpers = import ./nix/modules/lib/helpers { inherit lib; };
+                    in
                     {
                       imports = [
                         (import ./nix/modules/home {
@@ -222,8 +230,10 @@
                             pkgs
                             config
                             lib
+                            helpers
                             ;
                           homedir = darwinHomedir;
+                          dotfilesDir = "${darwinHomedir}/ghq/github.com/aiwao/dotfiles";
                         })
                       ];
                     };
