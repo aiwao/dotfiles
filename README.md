@@ -6,7 +6,7 @@ dotfiles.
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install
 git clone https://github.com/aiwao/dotfiles.git ~/ghq/github.com/aiwao/dotfiles
 cd ~/ghq/github.com/aiwao/dotfiles
-sudo nix run nix-darwin --switch --flake .#aa
+sudo nix run nix-darwin -- switch --flake .#aa
 ```
 
 ## Apply config changes
