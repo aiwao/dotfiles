@@ -2,6 +2,8 @@
   pkgs,
   lib,
   config,
+  dotfilesDir,
+  helpers,
   ...
 }:
 {

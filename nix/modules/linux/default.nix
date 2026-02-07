@@ -10,5 +10,15 @@
 {
   imports = [
     ./packages.nix
+
+    (import ./dotfiles.nix {
+      inherit
+        pkgs
+        lib
+        config
+        dotfilesDir
+        helpers
+        ;
+    })
   ];
 }

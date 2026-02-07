@@ -7,6 +7,9 @@
   system ? null,
   ...
 }:
+let
+  helpers = import ../lib/helpers { inherit lib; };
+in
 {
   imports = [
     (import ./programs {
@@ -15,8 +18,19 @@
         lib
         config
         system
+        helpers
         ;
     })
+
+    (import ./dotfiles.nix) {
+      inherit
+        pkgs
+        lib
+        config
+        dotfilesDir
+        helpers
+        ;
+    }
 
     ./packages.nix
   ];
