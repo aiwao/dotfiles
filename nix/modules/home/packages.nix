@@ -13,6 +13,7 @@ in
       fish
       curl
       devenv
+      htop
       tmux
       git
       git-lfs
@@ -20,8 +21,10 @@ in
       ripgrep
       fd
       fzf
-      wezterm
       jq
+      bat
+      eza
+      zoxide
       nodejs_24
       bun
     ];

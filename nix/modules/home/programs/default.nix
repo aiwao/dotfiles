@@ -8,5 +8,6 @@
   imports = [
     ./fish.nix
     ./neovim.nix
+    ./bat.nix
   ];
 }
