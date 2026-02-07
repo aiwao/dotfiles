@@ -14,9 +14,6 @@ in
   home.activation.linkDotfilesCommon = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
     ${helpers.activation.mkLinkForce}
 
-    # Neovim configuration
-    link_force "${dotfilesDir}/nvim" "${configHome}/nvim"
-
     # Fish shell configuration
     link_force "${dotfilesDir}/fish" "${configHome}/fish"
 

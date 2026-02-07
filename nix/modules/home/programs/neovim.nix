@@ -4,6 +4,10 @@
   config,
   ...
 }:
+let
+  nvimDotfilesDir = "${dotfilesDir}/nvim";
+  nvimConfigDir = "${config.xdg.configHome}/nvim";
+in
 {
   programs.neovim = {
     enable = true;
@@ -46,4 +50,10 @@
         yaml-language-server # YAML
       ]; 
   };
+
+  # Create symlink to NeoVim configuration in dotfiles (bypassing Nix store)
+  home.activation.linkNvimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ${helpers.activation.mkLinkForce}
+    link_force "${nvimDotfilesDir}" "${nvimConfigDir}"
+  '';
 }
