@@ -18,6 +18,8 @@ in
   imports = [
     ./packages.nix
 
+    ./dotfiles.nix
+
     (import ./programs {
       inherit
         pkgs
@@ -27,9 +29,7 @@ in
         system
         helpers
         ;
-    })
-
-    ./dotfiles.nix
+    }) 
   ];
 
   home.stateVersion = "25.11";
