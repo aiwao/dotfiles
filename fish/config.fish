@@ -12,6 +12,19 @@ set -g FISH_CONFIG_DIR $XDG_CONFIG_HOME/fish
 set -g FISH_CONFIG $FISH_CONFIG_DIR/config.fish
 set -g FISH_CACHE_DIR /tmp/fish-cache
 
+# Source home-manager session variables
+set -l HM_SESSION_VARS "$HOME/.local/state/home-manager/gcroots/current-home/home-path/etc/profile.d/hm-session-vars.sh"
+if test -f $HM_SESSION_VARS
+    for line in (grep '^export ' $HM_SESSION_VARS)
+        set -l kv (string replace 'export ' '' $line)
+        set -l key (string split -m1 '=' $kv)[1]
+        set -l value (string split -m1 '=' $kv)[2]
+        # Remove surrounding quotes if present
+        set value (string trim -c '"' $value)
+        set -gx $key $value
+    end
+end
+
 # load user config (functions/ is auto-loaded by Fish)
 for file in $FISH_CONFIG_DIR/config/*.fish
     source $file &
@@ -21,6 +34,9 @@ end
 fish_add_path $HOME/.local/bin
 fish_add_path /usr/local/opt/coreutils/libexec/gnubin
 fish_add_path /usr/local/opt/curl/bin
+
+# Add home-manager packages to PATH
+fish_add_path ~/.local/state/home-manager/gcroots/current-home/home-path/bin
 
 #brew
 fish_add_path /opt/homebrew/bin
@@ -53,6 +69,7 @@ fish_add_path /Applications/WezTerm.app/Contents/MacOS
 set -gx EDITOR nvim
 set -gx GIT_EDITOR nvim
 set -gx VISUAL nvim
+set -gx MANPAGER "nvim -c ASMANPAGER -"
 
 # postgresql
 set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
