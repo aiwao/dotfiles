@@ -9,5 +9,6 @@
     ./fish.nix
     ./neovim.nix
     ./bat.nix
+    ./direnv.nix
   ];
 }
