@@ -60,6 +60,7 @@
           config.allowUnfree = true;
           overlays = [
             neovim-nightly-overlay.overlays.default
+            (import ./nix/overlays/default.nix)
           ];
         };
 

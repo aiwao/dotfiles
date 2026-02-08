@@ -8,6 +8,7 @@ in
   home.packages =
     with pkgs;
     [
+      roots
       neovim
       wezterm
       fish
