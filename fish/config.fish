@@ -30,6 +30,8 @@ for file in $FISH_CONFIG_DIR/config/*.fish
     source $file &
 end
 
+
+
 # general bin paths
 fish_add_path $HOME/.local/bin
 fish_add_path /usr/local/opt/coreutils/libexec/gnubin
@@ -38,16 +40,16 @@ fish_add_path /usr/local/opt/curl/bin
 # Add home-manager packages to PATH
 fish_add_path ~/.local/state/home-manager/gcroots/current-home/home-path/bin
 
-# set -l CONFIG_CACHE $FISH_CACHE_DIR/config.fish
-# if not test -f "$CONFIG_CACHE"; or test "$FISH_CONFIG" -nt "$CONFIG_CACHE"
-#     mkdir -p $FISH_CACHE_DIR
-#     echo '' >$CONFIG_CACHE
-#
-#     # tools
-#     ensure_installed direnv hook fish >>$CONFIG_CACHE
-#     ensure_installed zoxide init fish >>$CONFIG_CACHE
-# end
-# source $CONFIG_CACHE
+set -l CONFIG_CACHE $FISH_CACHE_DIR/config.fish
+if not test -f "$CONFIG_CACHE"; or test "$FISH_CONFIG" -nt "$CONFIG_CACHE"
+    mkdir -p $FISH_CACHE_DIR
+    echo '' >$CONFIG_CACHE
+
+    # tools
+    ensure_installed direnv hook fish >>$CONFIG_CACHE
+    ensure_installed zoxide init fish >>$CONFIG_CACHE
+end
+source $CONFIG_CACHE
 
 # c / c++
 # c++
