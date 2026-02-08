@@ -1,13 +1,1 @@
-fish/fish_variables
-.wrangler
-gh
-nvm
-karabiner/automatic_backups/*
-cagent
-NotepadNext
-tool_state
-.android
-swiftpm
 result
-bat
-direnv
