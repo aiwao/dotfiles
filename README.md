@@ -1,6 +1,9 @@
 # Dotfiles
 dotfiles.
 
+reference
+https://github.com/ryoppippi/dotfiles
+
 ## Setup config
 ```sh
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install
