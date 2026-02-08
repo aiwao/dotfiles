@@ -12,5 +12,6 @@
     ./bat.nix
     ./direnv.nix
     ./neovim.nix
+    ./git.nix
   ];
 }

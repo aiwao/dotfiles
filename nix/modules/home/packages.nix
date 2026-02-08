@@ -24,6 +24,7 @@ in
       fzf
       jq
       bat
+      delta
       eza
       zoxide
       nodejs_24
