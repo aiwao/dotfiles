@@ -19,6 +19,7 @@ local config_list = {
   ["tailwindcss"] = {},
   ["ts_ls"] = {},
   ["basedpyright"] = {},
+  ["nixd"] = {},
   ["rust_analyzer"] = {
     settings = {
       ["rust-analyzer"] = {
