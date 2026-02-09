@@ -20,6 +20,20 @@ local config_list = {
   ["tailwindcss-language-server"] = {},
   ["typescript-language-server"] = {},
   ["pyright"] = {},
+  ["rust-analyzer"] = {
+    settings = {
+      ["rust-analyzer"] = {
+        files = {
+          excludeDirs = {
+            ".direnv",
+            ".git",
+            "target",
+            "result",
+          },
+        },
+      },
+    },
+  }
 }
 
 for server, config in pairs(config_list) do
