@@ -18,5 +18,5 @@ function ghq-c --description "Create a ghq directory and a GitHub repo, then cd 
     end
 
     cd $ghq_root/$repository
-    git remote add origin https://$reposityory.git
+    git remote add origin https://$repository.git
 end
