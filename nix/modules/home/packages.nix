@@ -17,6 +17,8 @@ in
       htop
       tmux
       git
+      git-wt
+      git-now
       git-lfs
       gh
       ghq

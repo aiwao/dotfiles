@@ -30,8 +30,6 @@ for file in $FISH_CONFIG_DIR/config/*.fish
     source $file &
 end
 
-
-
 # general bin paths
 fish_add_path $HOME/.local/bin
 fish_add_path /usr/local/opt/coreutils/libexec/gnubin
