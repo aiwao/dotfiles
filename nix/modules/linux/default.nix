@@ -10,7 +10,7 @@
 {
   imports = [
     ./packages.nix
-
     ./dotfiles.nix
+    ./startup.nix
   ];
 }
