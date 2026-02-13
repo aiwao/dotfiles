@@ -2,7 +2,7 @@
   programs.firefox = {
     enable = true;
 
-    languagePacks = [ "ja-JP" "en-US" ];
+    languagePacks = [ "en-US" ];
 
     policies = {
       # Updates & Background Services
