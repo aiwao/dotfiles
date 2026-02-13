@@ -32,5 +32,6 @@ in
       zoxide
       nodejs_24
       bun
+      pnpm
     ];
 }
