@@ -5,7 +5,7 @@
       config = {
         ProgramArguments = [ "${pkgs.wezterm}/bin/wezterm" ];
         RunAtLoad = true;
-        KeepAlive = true;
+        KeepAlive = false;
       };
     };
   };
