@@ -23,8 +23,9 @@ in
     (import ./programs {
       inherit
         pkgs
-        lib
         config
+        lib
+        homedir
         dotfilesDir
         system
         helpers

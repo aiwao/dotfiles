@@ -2,12 +2,14 @@
   pkgs,
   lib,
   config,
+  homedir,
   dotfilesDir,
   helpers,
   ...
 }:
 {
   imports = [
+    ./firefox.nix
     ./fish.nix
     ./bat.nix
     ./direnv.nix
