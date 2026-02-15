@@ -27,12 +27,6 @@ in
     activationScripts.postActivation.text = ''
       echo "Setting login shell to fish..."
       sudo chsh -s ${fishPath} ${username} || true
-
-      # Remove quarantine attribute from Arto.app (third-party tap)
-      if [ -e "/Applications/Arto.app" ]; then
-        echo "Removing quarantine from Arto.app..."
-        xattr -dr com.apple.quarantine /Applications/Arto.app 2>/dev/null || true
-      fi
     '';
 
     # macOS system defaults
