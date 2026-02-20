@@ -116,6 +116,8 @@ in
         enabled = true;
         autoupdate = true;
       };
+
+      wt.basedir = "./git-worktree";
     };
 
     ignores = [
