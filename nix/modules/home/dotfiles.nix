@@ -32,5 +32,8 @@ in
 
     # EFM Language Server configuration
     link_force "${dotfilesDir}/efm-langserver" "${configHome}/efm-langserver"
+
+    # Cobra-cli
+    link_force "${dotfilesDir}/.cobra.yaml" "${configHome}/.cobra.yaml"
   '';
 }
