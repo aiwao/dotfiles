@@ -8,6 +8,7 @@ in
   home.packages =
     with pkgs;
     [
+      mullvad
       roots
       neovim
       wezterm
