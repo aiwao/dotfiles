@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
@@ -41,6 +46,7 @@
       nix-darwin,
       flake-parts,
       home-manager,
+      nix-index-database,
       neovim-nightly-overlay,
       ...
     }: 
@@ -86,6 +92,8 @@
               in
               {
                 imports = [
+                  nix-index-database.hmModules.nix-index
+
                   (import ./nix/modules/home {
                     inherit
                       pkgs
@@ -195,6 +203,8 @@
                 inherit username;
                 homedir = darwinHomedir;
               })
+
+              nix-index-database.darwinModules.nix-index
 
               home-manager.darwinModules.home-manager
               {
