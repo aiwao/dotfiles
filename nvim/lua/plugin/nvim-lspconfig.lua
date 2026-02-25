@@ -20,6 +20,8 @@ local config_list = {
   ["ts_ls"] = {},
   ["basedpyright"] = {},
   ["nixd"] = {},
+  ["kotlin_language_server"] = {},
+  ["java_language_server"] = {},
   ["rust_analyzer"] = {
     settings = {
       ["rust-analyzer"] = {
@@ -39,6 +41,5 @@ local config_list = {
 for server, config in pairs(config_list) do
   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
   vim.lsp.config(server, config)
-  server_list[#server_list + 1] = server
+  vim.lsp.enable(server)
 end
-vim.lsp.enable(server_list)
