@@ -21,7 +21,20 @@ local config_list = {
   ["basedpyright"] = {},
   ["nixd"] = {},
   ["kotlin_language_server"] = {},
-  ["jdtls"] = {},
+  ["jdtls"] = {
+    settings = {
+      java = {
+        import = {
+          gradle = {
+            enable = true
+          },
+          maven = {
+            enable = true
+          },
+        },
+      },
+    },
+  },
   ["rust_analyzer"] = {
     settings = {
       ["rust-analyzer"] = {
