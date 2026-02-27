@@ -11,7 +11,7 @@
   imports = [
     ./packages.nix
     ./dotfiles.nix
-    ./startup.nix
+    ./system.nix
   ];
 
   programs.nix-index.enable = true;
