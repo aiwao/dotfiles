@@ -58,4 +58,15 @@ in
 
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
+
+  launchd.agents = {
+    wezterm = {
+      enable = true;
+      config = {
+        ProgramArguments = [ "${pkgs.wezterm}/bin/wezterm" ];
+        RunAtLoad = true;
+        KeepAlive = false;
+      };
+    };
+  };
 }
