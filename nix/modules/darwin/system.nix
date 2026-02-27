@@ -55,4 +55,15 @@ in
   };
 
   environment.shells = [ pkgs.fish ];
+
+  launchd.agents = {
+    wezterm = {
+      enable = true;
+      config = {
+        ProgramArguments = [ "${pkgs.wezterm}/bin/wezterm" ];
+        RunAtLoad = true;
+        KeepAlive = false;
+      };
+    };
+  };
 }
