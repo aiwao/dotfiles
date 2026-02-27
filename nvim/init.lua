@@ -1,5 +1,5 @@
 --Load plugins
-vim.pack.add { 
+vim.pack.add {
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/mrcjkb/rustaceanvim",
 }

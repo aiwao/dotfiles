@@ -4,6 +4,7 @@ vim.pack.add {
 
 local server_list = {}
 local config_list = {
+  ["lua_ls"] = {},
   ["efm"] = {},
   ["css_variables"] = {},
   ["cssmodules_ls"] = {},
