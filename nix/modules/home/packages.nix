@@ -8,7 +8,7 @@ in
   home.packages =
     with pkgs;
     [
-      poetry
+      uv
       mullvad
       roots
       neovim
