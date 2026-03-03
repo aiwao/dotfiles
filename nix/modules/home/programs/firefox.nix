@@ -61,6 +61,7 @@
             importedLists = [
               "https:#filters.adtidy.org/extension/ublock/filters/3.txt"
               "https:#github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
+              "https:#github.com/aiwao/my-ubo-filters/raw/main/youtube.txt"
             ];
 
             externalLists = lib.concatStringsSep "\n" importedLists;
@@ -75,6 +76,7 @@
             "easylist"
             "easyprivacy"
             "https:#github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
+            "https:#github.com/aiwao/my-ubo-filters/raw/main/youtube.txt"
             "plowe-0"
             "ublock-abuse"
             "ublock-badware"
