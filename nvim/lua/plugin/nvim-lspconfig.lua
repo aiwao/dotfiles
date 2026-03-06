@@ -47,6 +47,14 @@ local config_list = {
             "result",
           },
         },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
       },
     },
   }
