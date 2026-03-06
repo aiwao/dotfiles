@@ -2,7 +2,6 @@ vim.pack.add {
   "https://github.com/neovim/nvim-lspconfig",
 }
 
-local server_list = {}
 local config_list = {
   ["lua_ls"] = {},
   ["efm"] = {},
@@ -21,6 +20,7 @@ local config_list = {
   ["ts_ls"] = {},
   ["basedpyright"] = {},
   ["nixd"] = {},
+  ["vala_ls"] = {},
   ["kotlin_language_server"] = {},
   ["jdtls"] = {
     settings = {
