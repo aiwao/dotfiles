@@ -1,6 +1,6 @@
 function ghq-del --description "Delete a ghq directory and a GitHub repo"
     if test (count $argv) -eq 0
-        echo "project name was not found"
+        echo "please enter the repository name"
         return 1
     end
 

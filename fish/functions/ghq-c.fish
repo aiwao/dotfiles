@@ -1,6 +1,6 @@
 function ghq-c --description "Create a ghq directory and a GitHub repo, then cd into it and add the origin remote"
     if test (count $argv) -eq 0
-        echo "project name was not found"
+        echo "please enter the repository name"
         return 1
     end
 
