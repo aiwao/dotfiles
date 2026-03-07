@@ -124,6 +124,7 @@ in
       # Environment
       ".venv"
       ".direnv"
+      "git-worktree"
 
       # macOS
       ".DS_Store"
