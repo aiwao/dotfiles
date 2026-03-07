@@ -217,10 +217,9 @@ in
       ".dmypy.json"
       "dmypy.json"
       ".pyre/"
-
-      # Claude Code
-      "**/.claude/settings.local.json"
-      "**/CLAUDE.local.md"
+      
+      # Cargo
+      "target/"
     ];
   };
 }
