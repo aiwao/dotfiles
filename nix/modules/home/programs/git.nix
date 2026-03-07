@@ -117,7 +117,12 @@ in
         autoupdate = true;
       };
 
-      wt.basedir = "./git-worktree";
+      wt = {
+        basedir = "./git-worktree";
+        copyignored = true;
+        copyuntracked = true;
+        copymodified = true;
+      };
     };
 
     ignores = [
