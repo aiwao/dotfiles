@@ -166,9 +166,15 @@
                   echo "Building and switching to ${if isDarwin then "darwin" else "Home Manager"} configuration..."
                   ${
                     if isDarwin then
-                      "sudo nix run nix-darwin -- switch --flake .#${hostname}"
+                      ''
+                        sudo nix run nix-darwin -- switch --flake .#${hostname}
+                      ''
                     else
-                      "nix run nixpkgs#home-manager -- switch --flake .#${username}"
+                      ''
+                        nix run nixpkgs#home-manager -- switch --flake .#${username}
+                        sudo groupadd docker
+                        sudo usermod -aG docker ${username}
+                      ''
                   }
                   echo "Clearing fish cache..."
                   rm -rf "$TMPDIR/fish-cache"
