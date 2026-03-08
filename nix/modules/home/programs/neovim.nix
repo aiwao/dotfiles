@@ -29,6 +29,7 @@ in
         efm-langserver # General purpose LSP
         pyright # Python LSP
         typos-lsp # Spell checker LSP
+        lemminx # XML LSP
 
         # Python tools
         ruff # Python linter/formatter with built-in language server
