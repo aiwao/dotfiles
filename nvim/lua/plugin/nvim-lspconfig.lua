@@ -21,6 +21,7 @@ local config_list = {
   ["basedpyright"] = {},
   ["nixd"] = {},
   ["vala_ls"] = {},
+  ["lemminx"] = {},
   ["kotlin_language_server"] = {},
   ["jdtls"] = {
     settings = {
