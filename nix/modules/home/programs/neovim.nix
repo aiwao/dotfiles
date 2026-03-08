@@ -28,6 +28,7 @@ in
         nixd # Nix LSP
         efm-langserver # General purpose LSP
         pyright # Python LSP
+        basedpyright # Python LSP
         typos-lsp # Spell checker LSP
         lemminx # XML LSP
 
