@@ -23,3 +23,7 @@ vim.keymap.set("n", "<leader>gr", function() Snacks.picker.grep() end)
 vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
 --Terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+
+--Disable
+vim.keymap.set({ "n", "i", "v", "x", "o"}, "<PageUp>", "<Nop>", { silent = true })
+vim.keymap.set({ "n", "i", "v", "x", "o"}, "<PageDown>", "<Nop>", { silent = true })
