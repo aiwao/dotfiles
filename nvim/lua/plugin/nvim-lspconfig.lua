@@ -64,5 +64,8 @@ local config_list = {
 for server, config in pairs(config_list) do
   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
   vim.lsp.config(server, config)
-  vim.lsp.enable(server)
+  --rustaceanvim enables rust-analyzer manually
+  if not server == "rust_analyzer" then
+    vim.lsp.enable(server)  
+  end
 end
