@@ -5,6 +5,7 @@ vim.pack.add {
 local config_list = {
   ["lua_ls"] = {},
   ["efm"] = {},
+  ["csharp_ls"] = {},
   ["css_variables"] = {},
   ["cssmodules_ls"] = {},
   ["dockerls"] = {},
