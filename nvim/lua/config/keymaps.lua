@@ -24,6 +24,7 @@ vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
 
 --Terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+vim.keymap.set("t", "<C-Esc>", "<Esc>", { noremap = true }) --Mode escape in Neovim within the Neovim terminal
 
 --Edit
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
