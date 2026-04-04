@@ -17,5 +17,6 @@ in
     fuse-overlayfs
     podman-compose
     podman-tui
+    nixgl.nixGLIntel
   ];
 }
