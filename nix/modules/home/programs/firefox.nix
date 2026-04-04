@@ -53,6 +53,12 @@
           installation_mode = "force_installed";
           updates_disabled = true;
         };
+
+        "firefox-extension@deepl.com" = {
+          install_url = moz "deepl-translate";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
       };
 
       # Extension configuration 
