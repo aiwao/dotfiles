@@ -6,7 +6,7 @@
         After = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.wezterm}/bin/wezterm";
+        ExecStart = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel ${pkgs.wezterm}/bin/wezterm";
         Restart = "on-failure";
       };
       Install = {
