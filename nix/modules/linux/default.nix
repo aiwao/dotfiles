@@ -12,6 +12,16 @@
     ./packages.nix
     ./dotfiles.nix
     ./system.nix
+    (import ./programs {
+      inherit
+        pkgs
+        config
+        lib
+        homedir
+        dotfilesDir
+        helpers
+        ;
+    })
   ];
 
   programs.nix-index.enable = true;
