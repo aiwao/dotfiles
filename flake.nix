@@ -172,8 +172,6 @@
                     else
                       ''
                         nix run nixpkgs#home-manager -- switch --flake .#${username}
-                        sudo groupadd docker
-                        sudo usermod -aG docker ${username}
                       ''
                   }
                   echo "Clearing fish cache..."
