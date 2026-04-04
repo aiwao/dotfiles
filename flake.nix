@@ -37,6 +37,7 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = 
@@ -48,6 +49,7 @@
       home-manager,
       nix-index-database,
       neovim-nightly-overlay,
+      nixgl,
       ...
     }: 
     let
@@ -57,7 +59,10 @@
 
       # Create pkgs with overlays
       mkPkgs =
-        system:
+        {
+          system,
+          extraOverlays ? [ ],
+        }:
         let
           isDarwin = builtins.match ".*-darwin" system != null;
         in
@@ -67,14 +72,18 @@
           overlays = [
             neovim-nightly-overlay.overlays.default
             (import ./nix/overlays/default.nix)
-          ];
+          ]
+          ++ extraOverlays;
         };
 
       # Helper to create Linux home configuration
       mkLinuxHomeConfig =
         linuxSystem:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = mkPkgs linuxSystem;
+          pkgs = mkPkgs {
+            system = linuxSystem;
+            extraOverlays = [ nixgl.overlay ];
+          };
           modules = [
             {
               home.username = username;
@@ -134,7 +143,7 @@
           ...
         }:
         let
-          localPkgs = mkPkgs system;
+          localPkgs = mkPkgs { system = system; };
           inherit (localPkgs.stdenv) isDarwin;
           homedir = if isDarwin then darwinHomedir else linuxHomedir;
           hostname = username;
@@ -202,7 +211,7 @@
 
             modules = [
               (import ./nix/modules/darwin/system.nix {
-                pkgs = mkPkgs "aarch64-darwin";
+                pkgs = mkPkgs { system = "aarch64-darwin"; };
                 inherit (nixpkgs) lib;
                 inherit username;
                 homedir = darwinHomedir;
@@ -216,7 +225,7 @@
                   useGlobalPkgs = false;
                   useUserPackages = true;
                   extraSpecialArgs = {
-                    pkgs = mkPkgs "aarch64-darwin";
+                    pkgs = mkPkgs { system = "aarch64-darwin"; };
                   };
                   users.${username} =
                     {
