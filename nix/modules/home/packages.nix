@@ -11,7 +11,6 @@ in
       uv
       mullvad
       roots
-      neovim
       wezterm
       fish
       curl
