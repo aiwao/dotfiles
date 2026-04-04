@@ -59,6 +59,12 @@
           installation_mode = "force_installed";
           updates_disabled = true;
         };
+
+        "wappalyzer@crunchlabz.com" = {
+          install_url = moz "wappalyzer";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
       };
 
       # Extension configuration 
@@ -100,6 +106,8 @@
           ];
         };
       };
+
+      "wappalyzer@crunchlabz.com".tracking = false;
     };
   };
 }
