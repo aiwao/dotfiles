@@ -47,6 +47,18 @@
           installation_mode = "force_installed";
           updates_disabled  = true;
         };
+
+        "{60f82f00-9ad5-4de5-b31c-b16a47c51558}" = {
+          install_url = moz "cookie-quick-manager";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
+
+        "firefox-extension@deepl.com" = {
+          install_url = moz "deepl-translate";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
       };
 
       # Extension configuration 
