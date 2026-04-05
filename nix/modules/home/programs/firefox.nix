@@ -128,6 +128,12 @@
           Favicon = "https://search.nixos.org/packages/favicon-96x96.png";
           Placement = "toolbar";
         }
+        {
+          Title = "Perplexity";
+          URL = "https://www.perplexity.ai";
+          Favicon = "https://www.perplexity.ai/favicon.svg";
+          Placement = "toolbar";
+        }
       ];
     };
   };
