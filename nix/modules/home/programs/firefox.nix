@@ -105,9 +105,9 @@
             "urlhaus-1"
           ];
         };
-      };
 
-      "wappalyzer@crunchlabz.com".tracking = false;
+        "wappalyzer@crunchlabz.com".tracking = false;
+      };
     };
   };
 }
