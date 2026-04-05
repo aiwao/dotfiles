@@ -1,6 +1,6 @@
 --Oil
 local Oil = require("oil")
-vim.keymap.set("n", "<leader>tt", function() Oil.open_float() end, { silent = true })
+vim.keymap.set("n", "<leader>t", function() Oil.open_float() end, { silent = true })
 
 local Snacks = require("snacks")
 
