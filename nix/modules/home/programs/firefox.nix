@@ -108,6 +108,15 @@
 
         "wappalyzer@crunchlabz.com".tracking = false;
       };
+
+      Bookmarks = [
+        {
+          Title = "Gmail";
+          URL = "https://mail.google.com/mail/u/0/#inbox";
+          Favicon = "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico";
+          Placement = "toolbar";
+        }
+      ];
     };
   };
 }
