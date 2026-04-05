@@ -1,9 +1,17 @@
 --Oil
 local Oil = require("oil")
-vim.keymap.set("n", "<leader>tt", function() Oil.open_float() end, { silent = true })
+vim.keymap.set("n", "<leader>t", function() Oil.open_float() end, { silent = true })
+vim.keymap.set("n", "<Esc>", function ()
+  local winid = vim.api.nvim_get_current_win()
+  local buf = vim.api.nvim_win_get_buf(winid)
+  local is_oil = vim.bo[buf].filetype == "oil"
+  local is_float = vim.api.nvim_win_get_config(winid).relative ~= ""
+  if (is_oil and is_float) then
+    Oil.close()
+  end
+end)
 
 local Snacks = require("snacks")
-
 --Find
 vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end)
 vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end)
