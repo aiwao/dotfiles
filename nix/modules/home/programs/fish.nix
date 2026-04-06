@@ -56,13 +56,6 @@ let
   '') fishPlugins;
 in
 {
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      fenv source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" > /dev/null
-    '';
-  };
-
   # Install plugins to ~/.local/share/fish/nix-plugins
   home.file = lib.listToAttrs (
     map (plugin: {
