@@ -1,8 +1,11 @@
-_: {
+{
+  homedir,
+  ...
+}: {
   programs.bash = {
     enable = true;
     initExtra = ''
-      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      . "${homedir}/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
   };
 } 
