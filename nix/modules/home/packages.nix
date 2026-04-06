@@ -39,6 +39,6 @@ in
     ];
 
     home.sessionVariables = {
-      JDK24 = jdk21Pkg;
+      JDK21 = jdk21Pkg;
     };
 }
