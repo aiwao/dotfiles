@@ -15,6 +15,5 @@
     ./direnv.nix
     ./neovim.nix
     ./git.nix
-    ./bash.nix
   ];
 }
