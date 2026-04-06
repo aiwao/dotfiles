@@ -3,11 +3,13 @@ let
   # Check if we're on a platform that supports certain packages
   inherit (pkgs.stdenv) isDarwin isLinux;
   isX86Linux = pkgs.stdenv.hostPlatform.system == "x86_64-linux";
+  jdk21Pkg = pkgs.jdk21;
 in
 {
   home.packages =
     with pkgs;
     [
+      jdk21Pkg
       uv
       mullvad
       roots
@@ -35,4 +37,8 @@ in
       bun
       pnpm
     ];
+
+    home.sessionVariables = {
+      JDK21 = jdk21Pkg;
+    };
 }
