@@ -27,6 +27,10 @@ let
       inherit (pkgs.fishPlugins.hydro) src;
     }
     {
+      name = "foreign-env";
+      inherit (pkgs.fishPlugins.foreign-env) src;
+    }
+    {
       name = "nix-env.fish";
       src = pkgs.fetchFromGitHub {
         owner = "lilyball";
