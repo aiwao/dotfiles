@@ -11,7 +11,7 @@ let
   nvimConfigDir = "${config.xdg.configHome}/nvim";
 
   jolPkg = pkgs.jol;
-  jolJar = "${jolPkg}/share/java/jol-cli.jar";
+  jolJar = "${jolPkg}/share/jol-cli/jol-cli.jar";
 in
 {
   programs.neovim = {
