@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  homedir,
   ...
 }:
 let
@@ -59,7 +60,7 @@ in
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      fenv source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" > /dev/null
+      fenv source "${homedir}/.nix-profile/etc/profile.d/hm-session-vars.sh" > /dev/null
     '';
   };
 
