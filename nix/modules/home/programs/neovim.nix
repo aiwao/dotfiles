@@ -9,6 +9,9 @@
 let
   nvimDotfilesDir = "${dotfilesDir}/nvim";
   nvimConfigDir = "${config.xdg.configHome}/nvim";
+
+  jolPkg = pkgs.jol;
+  jolJar = "${jolPkg}/share/java/jol-cli.jar";
 in
 {
   programs.neovim = {
@@ -52,7 +55,13 @@ in
         vscode-langservers-extracted # HTML/CSS/JSON/ESLint
         vue-language-server # Vue.js
         yaml-language-server # YAML
+
+        jolPkg # for jdtls
       ]; 
+  };
+
+  home.sessionVariables = {
+    NEOVIM_JOL_JAR = jolJar;
   };
 
   # Create symlink to NeoVim configuration in dotfiles (bypassing Nix store)
