@@ -48,7 +48,7 @@ end
 local root_dir = config.root_dir or vim.fs.root(0, config.root_markers)
 local datadir
 if type(root_dir) == "string" then
-  datadir = cache_path .. "projects/" .. vim.fn.sha256(root_dir)
+  datadir = cache_path .. "projects/" .. root_dir:gsub("/", "_") .. vim.fn.sha256(root_dir)
   vim.fn.mkdir(datadir, "p")
   table.insert(cmd, "-data")
   table.insert(cmd, datadir)
