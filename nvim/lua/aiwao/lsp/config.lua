@@ -9,7 +9,7 @@ local module_list = {
 for _, m in ipairs(module_list) do
   module_config = require("aiwao.lsp." .. m).config
   if module_config ~= nil then
-    configs = vim.tbl_extend(configs, module_config)
+    configs = vim.tbl_extend("force", configs, module_config)
   end
 end
 
