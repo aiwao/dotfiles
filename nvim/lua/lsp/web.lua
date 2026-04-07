@@ -1,3 +1,4 @@
+---@type LSPModule
 local M = {}
 
 function M.enable()

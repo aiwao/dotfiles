@@ -1,0 +1,2 @@
+---@class LSPModule
+---@field enable fun()
