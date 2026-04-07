@@ -17,6 +17,10 @@
       "rev": "ac9fa498a9edb96dc3056724ff69d5f40b898453",
       "src": "https://github.com/saecki/crates.nvim"
     },
+    "fff.nvim": {
+      "rev": "541c3f572285e3750e5b2f8341bdc8843f5f745b",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"

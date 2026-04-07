@@ -16,6 +16,7 @@ require("plugin.noice")
 require("plugin.intent-blankline")
 require("plugin.comment")
 require("plugin.crates")
+require("plugin.fff")
 --Load configs
 require("config.generals")
 require("config.codestyles")
