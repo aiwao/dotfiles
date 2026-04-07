@@ -61,8 +61,7 @@ in
 
   launchd.agents = {
     wezterm = {
-      enable = true;
-      config = {
+      serviceConfig = {
         ProgramArguments = [ "${pkgs.wezterm}/bin/wezterm" ];
         RunAtLoad = true;
         KeepAlive = false;
