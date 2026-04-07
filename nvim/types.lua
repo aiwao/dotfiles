@@ -1,2 +1,3 @@
 ---@class LSPModule
 ---@field enable fun()
+---@field config table<string, table>?
