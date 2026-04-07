@@ -123,7 +123,7 @@ local config_list = {
   }
 }
 
-for server, config in pairs(config_list) do
+for server, config in pairs(require("aiwao.lsp.config")) do
   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
   vim.lsp.config(server, config)
   if (server == "efm") then

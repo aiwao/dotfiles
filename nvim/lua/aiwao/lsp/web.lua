@@ -4,7 +4,7 @@ local M = {
     vim.lsp.enable("eslint")
     vim.lsp.enable("ts_ls")
     vim.lsp.enable("html")
-    require("lsp.css").enable()
+    require("aiwao.lsp.css").enable()
   end,
 }
 

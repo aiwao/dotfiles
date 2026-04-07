@@ -1,1 +1,1 @@
-require("lsp.css").enable()
+require("aiwao.lsp.css").enable()

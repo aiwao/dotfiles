@@ -1,1 +1,1 @@
-require("lsp.web").enable()
+require("aiwao.lsp.web").enable()

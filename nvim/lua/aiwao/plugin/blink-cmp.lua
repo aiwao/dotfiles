@@ -16,5 +16,5 @@ require("blink.cmp").setup {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
   },
   fuzzy = { implementation = "prefer_rust_with_warning" },
-  keymap = require("config.blink-cmp-keymaps"),
+  keymap = require("aiwao.config.blink-cmp-keymaps"),
 }
