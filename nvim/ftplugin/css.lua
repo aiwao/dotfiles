@@ -1,1 +1,1 @@
-require("lsp.css")
+require("lsp.css").enable()

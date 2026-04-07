@@ -1,1 +1,1 @@
-require("lsp.web")
+require("lsp.web").enable()
