@@ -2,7 +2,7 @@
 local M = {
   enable = function ()
     --rustaceanvim will enables rust-analyzer
-  end
+  end,
   config = {
     ["rust_analyzer"] = {
       settings = {
