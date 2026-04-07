@@ -11,12 +11,18 @@ vim.keymap.set("n", "<Esc>", function ()
   end
 end)
 
+local fff = require("fff")
 local Snacks = require("snacks")
 --Find
+vim.keymap.set("n", "<leader>ff",
+  function()
+    fff.scan_files()
+    fff.refresh_git_status()
+    fff.find_files()
+  end
+)
+vim.keymap.set("n", "<leader>fg", function() fff.live_grep({ query = vim.fn.expand("<cword>") }) end)
 vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end)
-vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end)
-vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end)
-
 --LSP
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end)
 vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end)
