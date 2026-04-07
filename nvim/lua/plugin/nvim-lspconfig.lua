@@ -126,9 +126,7 @@ local config_list = {
 for server, config in pairs(config_list) do
   config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
   vim.lsp.config(server, config)
-  --rustaceanvim enables rust-analyzer manually
-  --nvim-jdtls enables jdtls manually
-  if not (server == "rust_analyzer" or server == "jdtls") then
+  if (server == "efm") then
     vim.lsp.enable(server)
   end
 end
