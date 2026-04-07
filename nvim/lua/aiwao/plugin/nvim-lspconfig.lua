@@ -99,28 +99,6 @@ local config_list = {
       },
     },
   },
-  ["rust_analyzer"] = {
-    settings = {
-      ["rust-analyzer"] = {
-        files = {
-          excludeDirs = {
-            ".direnv",
-            ".git",
-            "target",
-            "result",
-          },
-        },
-        cargo = {
-          buildScripts = {
-            enable = true,
-          },
-        },
-        procMacro = {
-          enable = true,
-        },
-      },
-    },
-  }
 }
 
 for server, config in pairs(require("aiwao.lsp.config")) do

@@ -3,7 +3,7 @@ local configs = {}
 
 ---@type string[]
 local module_list = {
-  "css", "web"
+  "css", "web", "rust"
 }
 
 for _, m in ipairs(module_list) do
