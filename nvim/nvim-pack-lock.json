@@ -84,10 +84,6 @@
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
-    },
-    "vlog.nvim": {
-      "rev": "300e43f1628935aa9fec0560f3c7c483b3d38db2",
-      "src": "https://github.com/tjdevries/vlog.nvim"
     }
   }
 }
