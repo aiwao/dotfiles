@@ -14,15 +14,15 @@ end)
 local fff = require("fff")
 local Snacks = require("snacks")
 --Find
-vim.keymap.set("n", "<leader>ff",
+vim.keymap.set({ "n", "v" }, "<leader>ff",
   function()
     fff.scan_files()
     fff.refresh_git_status()
     fff.find_files()
   end
 )
-vim.keymap.set("n", "<leader>fg", function() fff.live_grep({ query = vim.fn.expand("<cword>") }) end)
-vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end)
+vim.keymap.set({ "n", "v" }, "<leader>fg", function() fff.live_grep({ query = vim.fn.expand("<cword>") }) end)
+vim.keymap.set({ "n", "v" }, "<leader>fb", function() Snacks.picker.buffers() end)
 --LSP
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end)
 vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end)
