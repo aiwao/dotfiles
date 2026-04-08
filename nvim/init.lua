@@ -3,6 +3,7 @@ vim.pack.add {
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/mrcjkb/rustaceanvim",
   "https://github.com/mfussenegger/nvim-jdtls",
+  "https://github.com/nvim-lua/plenary.nvim",
 }
 require("aiwao.plugin.blink-cmp")
 require("aiwao.plugin.nvim-lspconfig")
