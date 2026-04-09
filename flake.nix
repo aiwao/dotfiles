@@ -186,7 +186,7 @@
                       ''
                     else
                       ''
-                        nix build .#homeConfigurations.${username}.activationPackage
+                        nix build .#homeConfigurations.${username}-${system}.activationPackage
                         nix build .#systemConfigs.${system}.${username}
                       ''
                   }
@@ -208,7 +208,7 @@
                       ''
                     else
                       ''
-                        nix run nixpkgs#home-manager -- switch --flake .#${username}
+                        nix run nixpkgs#home-manager -- switch --flake .#${username}-${system}
                         nix run nixpkgs#system-manager -- switch --flake .#${username} --sudo
                       ''
                   }
@@ -301,8 +301,8 @@
 
           # Linux configurations with standalone Home Manager
           homeConfigurations = {
-            ${username} = mkLinuxHomeConfig "x86_64-linux";
-            "${username}-aarch64" = mkLinuxHomeConfig "aarch64-linux";
+            "${username}-x86_64-linux" = mkLinuxHomeConfig "x86_64-linux";
+            "${username}-aarch64-linux" = mkLinuxHomeConfig "aarch64-linux";
           };
         };
     };
