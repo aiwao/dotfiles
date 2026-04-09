@@ -1,17 +1,19 @@
-{ pkgs, ... }: {
-  systemd.user.services = {
-    wezterm = {
-      Unit = {
-        Description = "Terminal";
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel ${pkgs.wezterm}/bin/wezterm";
-        Restart = "on-failure";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
+{
+  username,
+  ...
+}: {
+  environment.etc = {
+    subuid = {
+      text = ''
+        ${username}:100000:65536
+      '';
+      replaceExisting = true;
+    };
+    subgid = {
+      text = ''
+        ${username}:100000:65536
+      '';
+      replaceExisting = true;
     };
   };
 }

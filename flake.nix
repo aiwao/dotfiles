@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +52,7 @@
       nix-darwin,
       flake-parts,
       home-manager,
+      system-manager,
       nix-index-database,
       neovim-nightly-overlay,
       nixgl,
@@ -128,6 +134,23 @@
             )
           ];
         };
+
+    mkLinuxSystemConfig =
+      linuxSystem:
+      system-manager.lib.makeSystemConfig {
+        modules = [
+          ({ ... }: {
+            nixpkgs.hostPlatform = linuxSystem;
+          })
+
+          (import ./nix/modules/linux/system.nix {
+            pkgs = mkPkgs { system = linuxSystem; };
+            inherit (nixpkgs) lib;
+            inherit username;
+            homedir = linuxHomedir;
+          })
+        ];
+      };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -156,11 +179,16 @@
                 localPkgs.writeShellScript (if isDarwin then "darwin-build" else "home-manager-build") ''
                   set -e
                   echo "Building ${if isDarwin then "darwin" else "Home Manager"} configuration..."
-                  nix build .#${
+                  ${
                     if isDarwin then
-                      "darwinConfigurations.${hostname}.system"
+                      ''
+                        nix build .#darwinConfigurations.${hostname}.system
+                      ''
                     else
-                      "homeConfigurations.${username}.activationPackage"
+                      ''
+                        nix build .#homeConfigurations.${username}.activationPackage
+                        nix build .#systemConfigs.${system}.${username}
+                      ''
                   }
                   echo "Build successful! Run 'nix run .#switch' to apply."
                 ''
@@ -181,6 +209,7 @@
                     else
                       ''
                         nix run nixpkgs#home-manager -- switch --flake .#${username}
+                        nix run nixpkgs#system-manager -- switch --flake .#${username} --sudo
                       ''
                   }
                   echo "Clearing fish cache..."
@@ -264,6 +293,10 @@
                 };
               }
             ];
+          };
+          systemConfigs = {
+            x86_64-linux.${username} = mkLinuxSystemConfig "x86_64-linux";
+            aarch64-linux.${username} = mkLinuxSystemConfig "aarch64-linux";
           };
 
           # Linux configurations with standalone Home Manager
