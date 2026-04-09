@@ -179,11 +179,16 @@
                 localPkgs.writeShellScript (if isDarwin then "darwin-build" else "home-manager-build") ''
                   set -e
                   echo "Building ${if isDarwin then "darwin" else "Home Manager"} configuration..."
-                  nix build .#${
+                  ${
                     if isDarwin then
-                      "darwinConfigurations.${hostname}.system"
+                      ''
+                        nix build .#darwinConfigurations.${hostname}.system
+                      ''
                     else
-                      "homeConfigurations.${username}.activationPackage"
+                      ''
+                        nix build .#homeConfigurations.${username}.activationPackage
+                        nix build .#systemConfigs.${system}.${username}
+                      ''
                   }
                   echo "Build successful! Run 'nix run .#switch' to apply."
                 ''
