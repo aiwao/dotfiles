@@ -288,23 +288,6 @@
               }
             ];
           };
-
-          systemConfigs.${username} = system-manager.lib.makeSystemConfig {
-            modules = [
-              ({ ... }: {
-                nixpkgs.hostPlatform = "x86_64-linux";
-                system-manager.allowAnyDistro = true;
-              })
-
-              (import ./nix/modules/linux/system.nix {
-                pkgs = mkPkgs { system = "x86_64-linux"; };
-                inherit (nixpkgs) lib;
-                inherit username;
-                homedir = linuxHomedir;
-              })
-            ];
-          };
-
           systemConfigs = {
             ${username} = mkLinuxSystemConfig "x86_64-linux";
             "${username}-aarch64" = mkLinuxSystemConfig "aarch64-linux";
