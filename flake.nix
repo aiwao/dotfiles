@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +52,7 @@
       nix-darwin,
       flake-parts,
       home-manager,
+      system-manager,
       nix-index-database,
       neovim-nightly-overlay,
       nixgl,
@@ -128,6 +134,23 @@
             )
           ];
         };
+
+    mkLinuxSystemConfig =
+      linuxSystem:
+      system-manager.lib.makeSystemConfig {
+        modules = [
+          ({ ... }: {
+            nixpkgs.hostPlatform = linuxSystem;
+          })
+
+          (import ./nix/modules/linux/system.nix {
+            pkgs = mkPkgs { system = linuxSystem; };
+            inherit (nixpkgs) lib;
+            inherit username;
+            homedir = linuxHomedir;
+          })
+        ];
+      };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -264,6 +287,27 @@
                 };
               }
             ];
+          };
+
+          systemConfigs.${username} = system-manager.lib.makeSystemConfig {
+            modules = [
+              ({ ... }: {
+                nixpkgs.hostPlatform = "x86_64-linux";
+                system-manager.allowAnyDistro = true;
+              })
+
+              (import ./nix/modules/linux/system.nix {
+                pkgs = mkPkgs { system = "x86_64-linux"; };
+                inherit (nixpkgs) lib;
+                inherit username;
+                homedir = linuxHomedir;
+              })
+            ];
+          };
+
+          systemConfigs = {
+            ${username} = mkLinuxSystemConfig "x86_64-linux";
+            "${username}-aarch64" = mkLinuxSystemConfig "aarch64-linux";
           };
 
           # Linux configurations with standalone Home Manager
