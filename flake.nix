@@ -204,6 +204,7 @@
                     else
                       ''
                         nix run nixpkgs#home-manager -- switch --flake .#${username}
+                        nix run nixpkgs#system-manager -- switch --flake .#${username} --sudo
                       ''
                   }
                   echo "Clearing fish cache..."
