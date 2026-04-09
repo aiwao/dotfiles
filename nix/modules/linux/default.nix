@@ -11,7 +11,7 @@
   imports = [
     ./packages.nix
     ./dotfiles.nix
-    ./system.nix
+    ./systemd.nix
     (import ./programs {
       inherit
         pkgs
