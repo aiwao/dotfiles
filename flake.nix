@@ -289,8 +289,8 @@
             ];
           };
           systemConfigs = {
-            ${username} = mkLinuxSystemConfig "x86_64-linux";
-            "${username}-aarch64" = mkLinuxSystemConfig "aarch64-linux";
+            x86_64-linux.${username} = mkLinuxSystemConfig "x86_64-linux";
+            aarch64-linux.${username} = mkLinuxSystemConfig "aarch64-linux";
           };
 
           # Linux configurations with standalone Home Manager
