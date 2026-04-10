@@ -14,6 +14,8 @@ in
       mullvad
       roots
       wezterm
+      pure-prompt
+      zsh
       fish
       curl
       devenv

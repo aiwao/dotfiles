@@ -5,7 +5,7 @@
   ...
 }:
 let
-  fishPath = "${pkgs.fish}/bin/fish";
+  zshPath = "${pkgs.zsh}/bin/zsh";
 in
 {
   # Allow unfree packages
@@ -26,7 +26,7 @@ in
     # Set user shell on activation
     activationScripts.postActivation.text = ''
       echo "Setting login shell to fish..."
-      sudo chsh -s ${fishPath} ${username} || true
+      sudo chsh -s ${zshPath} ${username} || true
     '';
 
     # macOS system defaults
@@ -50,11 +50,11 @@ in
 
   users.users.${username} = {
     home = homedir;
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
 
-  environment.shells = [ pkgs.fish ];
+  environment.shells = [ pkgs.zsh ];
 
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;

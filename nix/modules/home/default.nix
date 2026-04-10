@@ -30,9 +30,15 @@ in
         system
         helpers
         ;
-    }) 
+    })
   ];
 
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    nvim.enable = false;
+  };
 }
