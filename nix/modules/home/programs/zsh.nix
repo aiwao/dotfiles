@@ -45,6 +45,11 @@
       fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
       autoload -U promptinit; promptinit
       prompt pure
+
+      alias ls=eza
+      abbr ll="ls -hl"
+      abbr la="ls -hAl"
+      abbr lt="ls --tree"
     '';
   };
 }
