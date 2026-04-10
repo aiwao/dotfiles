@@ -14,6 +14,7 @@ in
       mullvad
       roots
       wezterm
+      zsh
       fish
       curl
       devenv
