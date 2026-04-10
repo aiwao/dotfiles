@@ -45,7 +45,7 @@
     initContent = ''
       source ${homedir}/.bash_profile
       
-      foreach file (${homedir}/*) {
+      foreach file (${homedir}/.zsh/scripts/*) {
         source $file
       }
 
