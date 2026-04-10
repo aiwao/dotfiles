@@ -15,6 +15,10 @@
         inherit (pkgs.zsh-autosuggestions) src;
       }
       {
+        name = "zsh-autosuggestions-abbreviations-strategy";
+        inherit (pkgs.zsh-autosuggestions-abbreviations-strategy) src;
+      }
+      {
         name = "zsh-fzf-tab";
         inherit (pkgs.zsh-fzf-tab) src;
       }
@@ -29,6 +33,10 @@
       {
         name = "zsh-nix-shell";
         inherit (pkgs.zsh-nix-shell) src;
+      }
+      {
+        name = "zsh-abbr";
+        inherit (pkgs.zsh-abbr) src;
       }
     ];
 
