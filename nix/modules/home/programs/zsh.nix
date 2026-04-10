@@ -27,7 +27,8 @@
         inherit (pkgs.zsh-autopair) src;
       }
     ];
-    initExtra = ''
+
+    initContent = ''
       fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
       autoload -U promptinit; promptinit
       prompt pure
