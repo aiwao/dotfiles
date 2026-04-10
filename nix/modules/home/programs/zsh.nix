@@ -1,5 +1,6 @@
 {
   pkgs,
+  catppuccin,
   ...
 }:
 {
@@ -42,6 +43,7 @@
 
     initContent = ''
       source ~/.bash_profile
+
       fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
       autoload -U promptinit; promptinit
       prompt pure
@@ -52,4 +54,6 @@
       abbr lt="ls --tree"
     '';
   };
+
+  catppuccin.zsh-syntax-highlighting.enable = true;
 }

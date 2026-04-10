@@ -41,6 +41,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:catppuccin/nix";
+
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixgl.url = "github:nix-community/nixGL";
   };
@@ -56,6 +58,7 @@
       nix-index-database,
       neovim-nightly-overlay,
       nixgl,
+      catppuccin,
       ...
     }: 
     let
@@ -90,7 +93,11 @@
             system = linuxSystem;
             extraOverlays = [ nixgl.overlay ];
           };
+
+
           modules = [
+            catppuccin.homeModules.catppuccin
+
             {
               home.username = username;
               home.homeDirectory = linuxHomedir;
