@@ -26,6 +26,10 @@
         name = "zsh-autopair";
         inherit (pkgs.zsh-autopair) src;
       }
+      {
+        name = "zsh-nix-shell";
+        inherit (pkgs.zsh-nix-shell) src;
+      }
     ];
 
     initContent = ''
