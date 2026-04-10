@@ -16,6 +16,8 @@ local filetype_tabstop = {
   typescript=2,
   javascript=2,
   css=2,
+  zsh=2,
+  bash=2,
 }
 --false=Use tab
 local filetype_expand = {
