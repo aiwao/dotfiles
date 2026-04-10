@@ -6,3 +6,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 eval "$(zoxide init bash)"
 # direnv
 eval "$(direnv hook bash)"
+
+if [[ -t 0 && $- = *i* ]] && [[ ! $ZSH_VERSION ]]; then
+  exec zsh
+fi
