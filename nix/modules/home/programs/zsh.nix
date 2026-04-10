@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  homedir,
   ...
 }:
 {
@@ -42,7 +43,11 @@
     ];
 
     initContent = ''
-      source ~/.bash_profile
+      source ${homedir}/.bash_profile
+      
+      foreach file (${homedir}/*) {
+        source $file
+      }
 
       fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
       autoload -U promptinit; promptinit

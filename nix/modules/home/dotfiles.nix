@@ -20,6 +20,9 @@ in
     # Zsh environment
     link_force "${dotfilesDir}/zshenv" "${homeDirectory}/.zshenv"
 
+    # Zsh scripts
+    link_force "${dotfilesDir}/zsh/scripts" "${homeDirectory}/.zsh/scripts"
+
     # Bash configuration
     link_force "${dotfilesDir}/bash/.bash_profile" "${homeDirectory}/.bash_profile"
     link_force "${dotfilesDir}/bash/.bashrc" "${homeDirectory}/.bashrc"
