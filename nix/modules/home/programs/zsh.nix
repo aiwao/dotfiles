@@ -62,9 +62,9 @@
   home.activation.zshAbbr = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ${pkgs.zsh}/bin/zsh -c "
       source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh && (
-        abbr ll='ls -hl';
-        abbr la='ls -hAl';
-        abbr lt='ls --tree';
+        abbr ll='ls -hl' || true;
+        abbr la='ls -hAl' || true;
+        abbr lt='ls --tree' || true;
       )
     "
   '';
