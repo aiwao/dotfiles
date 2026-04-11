@@ -68,14 +68,6 @@ local M = {
             useBlocks = true,
             addFinalForNewDeclaration = "fields",
           };
-          import = {
-            gradle = {
-              enabled = true
-            },
-            maven = {
-              enabled = true
-            },
-          },
         },
       },
     }
