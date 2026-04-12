@@ -1,3 +1,33 @@
+local dap = require("dap")
+dap.configurations.java = {
+  {
+    type = "java";
+    request = "attach";
+    name = "Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+  -- Minecraft fabric dap setup:
+  -- 1. Run `./gradlew vscode`
+  -- 2. Run `:DapNew`
+  --
+  --
+  -- If error occurred about OpenGL:
+  -- 1. Write a wrapper script
+  --
+  -- ./java-nixgl:
+  -- ```
+  -- #!/home/aiwao/.nix-profile/bin/zsh
+  -- exec nixGLIntel java "$@"
+  -- ```
+  --
+  -- 2. Add a permission to the script
+  -- `chmod +x ./java-nixgl`
+  --
+  -- 3. Edit a `./vscode/launch.json`
+  -- Create a json entry `"javaExec": "./java-nixgl"`
+}
+
 local jdtls_bin_path = vim.fn.exepath("jdtls")
 if (vim.lsp.is_enabled("jdtls") or (jdtls_bin_path == "")) then
   return
@@ -10,6 +40,7 @@ local config = vim.lsp.config["jdtls"]
 local cmd = {
   os.getenv("JDK21") .. "/bin/java",
   -- '-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=1044',
+  "-javaagent:" .. vim.fn.expand("~/lombok.jar"),
   "-Declipse.application=org.eclipse.jdt.ls.core.id1",
   "-Dosgi.bundles.defaultStartLevel=4",
   "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -54,13 +85,9 @@ if type(root_dir) == "string" then
   table.insert(cmd, datadir)
 end
 
-local extendedClientCapabilities = jdtls.extendedClientCapabilities;
-extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
-config.init_options = {
-  extendedClientCapabilities = extendedClientCapabilities;
-}
 -- mute; having progress reports is enough
 config.handlers = {
   ["language/status"] = function() end
 }
 jdtls.start_or_attach(config)
+require("jdtls.dap").setup_dap { hotcodereplace = "auto" }
