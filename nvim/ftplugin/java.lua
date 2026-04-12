@@ -40,7 +40,6 @@ local config = vim.lsp.config["jdtls"]
 local cmd = {
   os.getenv("JDK21") .. "/bin/java",
   -- '-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=1044',
-  "-javaagent:" .. vim.fn.expand("~/lombok.jar"),
   "-Declipse.application=org.eclipse.jdt.ls.core.id1",
   "-Dosgi.bundles.defaultStartLevel=4",
   "-Declipse.product=org.eclipse.jdt.ls.core.product",
