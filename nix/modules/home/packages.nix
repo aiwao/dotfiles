@@ -9,6 +9,7 @@ in
   home.packages =
     with pkgs;
     [
+      vlc
       jdk21Pkg
       uv
       mullvad
