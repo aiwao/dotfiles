@@ -1,3 +1,14 @@
+local dap = require("dap")
+dap.configurations.java = {
+  {
+    type = "java";
+    request = "attach";
+    name = "Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+}
+
 local jdtls_bin_path = vim.fn.exepath("jdtls")
 if (vim.lsp.is_enabled("jdtls") or (jdtls_bin_path == "")) then
   return
@@ -54,13 +65,9 @@ if type(root_dir) == "string" then
   table.insert(cmd, datadir)
 end
 
-local extendedClientCapabilities = jdtls.extendedClientCapabilities;
-extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
-config.init_options = {
-  extendedClientCapabilities = extendedClientCapabilities;
-}
 -- mute; having progress reports is enough
 config.handlers = {
   ["language/status"] = function() end
 }
 jdtls.start_or_attach(config)
+require("jdtls.dap").setup_dap { hotcodereplace = "auto" }

@@ -5,6 +5,13 @@ local M = {
   end,
   config = {
     ["jdtls"] = {
+      before_init = function (params)
+        ---@diagnostic disable-next-line: inject-field
+        params.initializationOptions.bundles = { os.getenv("NEOVIM_JAVA_DEBUG") }
+      end,
+      on_attach = function (client, bufnr)
+        require("aiwao.config.nvim-jdtls-keymaps").setup(client, bufnr)
+      end,
       root_markers = {
         -- Multi-module projects
         "mvnw", -- Maven
