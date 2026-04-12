@@ -14,6 +14,8 @@ let
   jolJar = "${jolPkg}/share/jol-cli/jol-cli.jar";
   javaDbgPkg = pkgs.vscode-extensions.vscjava.vscode-java-debug;
   javaDbgJar = "${javaDbgPkg}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.53.1.jar";
+  lombokPkg = pkgs.lombok;
+  lombokJar = "${lombokPkg}/share/java/lombok.jar";
 in
 {
   programs.neovim = {
@@ -60,12 +62,14 @@ in
 
         jolPkg # for jdtls
         javaDbgPkg
+        lombokPkg
       ]; 
   };
 
   home.sessionVariables = {
     NEOVIM_JOL_JAR = jolJar;
     NEOVIM_JAVA_DEBUG = javaDbgJar;
+    NEOVIM_LOMBOK_JAR = lombokJar;
   };
 
   # Create symlink to NeoVim configuration in dotfiles (bypassing Nix store)
