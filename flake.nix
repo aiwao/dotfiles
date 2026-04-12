@@ -219,7 +219,6 @@
                         nix run nixpkgs#system-manager -- switch --flake .#${username} --sudo
                       ''
                   }
-                  unset __HM_SESS_VARS_SOURCED || true
                   echo "Clearing fish cache..."
                   rm -rf "$TMPDIR/fish-cache"
                   echo "Done!"
