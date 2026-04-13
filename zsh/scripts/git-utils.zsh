@@ -6,3 +6,14 @@ git_root() {
   }
   echo "$root"
 }
+
+git_remote_username() {
+  result=$(gh auth status --json hosts --jq '.hosts["'"$1"'"][] | select(.active) | .login')
+
+  if [ -z "$result" ]; then
+    echo "You have not active account on $1" >&2
+    return 1
+  fi
+
+  echo "$result"
+}
