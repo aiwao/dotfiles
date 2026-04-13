@@ -1,6 +1,6 @@
 gwtd() {
-  if [[ $# -ne 1 ]]; then
-    echo "Usage: gwtd <branch>"
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: gwtd <branch> <git-wt -d arguments>"
     return 1
   fi
   local target_branch=$1
@@ -12,7 +12,7 @@ gwtd() {
     return 1
   fi
   
-  git-wt -d $target_branch || return 1
+  git-wt -d "${@:2}" "$target_branch" || return 1
   
   echo -n "Remove a workspace? (y/n): "
   read rm_work
