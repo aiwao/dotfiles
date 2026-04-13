@@ -1,5 +1,5 @@
 gwtd() {
-  if [[ $# -lt 1 ]]; then
+  if [[ $# -ne 1 ]]; then
     echo "Usage: gwtd <branch>"
     return 1
   fi
