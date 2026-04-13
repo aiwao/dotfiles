@@ -10,7 +10,7 @@ ghqc() {
   local repository="$HOST/$username/$name"
 
   ghq create "$name" || return 1
-  gh repo create $@ || {
+  gh repo create "$@" || {
     ghq rm "$name"
     return 1
   }
