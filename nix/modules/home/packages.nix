@@ -9,6 +9,7 @@ in
   home.packages =
     with pkgs;
     [
+      gimp
       vlc
       jdk21Pkg
       uv
