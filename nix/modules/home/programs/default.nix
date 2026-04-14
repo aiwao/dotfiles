@@ -17,5 +17,6 @@
     ./git.nix
     ./zsh.nix
     ./fzf.nix
+    ./eza.nix
   ];
 }
