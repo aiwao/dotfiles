@@ -40,5 +40,6 @@ in
     enable = true;
     flavor = "mocha";
     nvim.enable = false;
+    firefox.enable = false;
   };
 }

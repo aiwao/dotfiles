@@ -1,4 +1,9 @@
-{ homedir, lib, ... }: {
+{ config, homedir, lib, ... }:
+let
+  firefoxColorThemesJSON = lib.importJSON "${config.catppuccin.sources.firefox}/themes.json";
+  firefoxColorTheme = firefoxColorThemesJSON.${config.catppuccin.flavor}.${config.catppuccin.accent};
+in
+{
   programs.firefox = {
     enable = true;
 
@@ -68,6 +73,12 @@
 
         "complexity@ngocdg" = {
           install_url = moz "complexity";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
+
+        "FirefoxColor@mozilla.com" = {
+          install_url = moz "firefox-color";
           installation_mode = "force_installed";
           updates_disabled = true;
         };
@@ -153,6 +164,26 @@
           Placement = "toolbar";
         }
       ];
+    };
+    
+    profiles.default = {
+      id = 0;
+      isDefault = true;
+      
+      settings = {
+        "intl.locale.requested" = "ja";
+        "intl.accept_languages" = "ja,en-US,en";
+      };
+
+      # Extension Settings (browser.storage.local)
+      extensions.force = true;
+      extensions.settings."FirefoxColor@mozilla.com" = {
+        force = true;
+        settings = {
+          firstRunDone = true;
+          theme = firefoxColorTheme;
+        };
+      };
     };
   };
 }
