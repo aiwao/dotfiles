@@ -24,8 +24,15 @@ vim.keymap.set({ "n", "v" }, "<leader>ff",
 vim.keymap.set({ "n", "v" }, "<leader>fg", function() fff.live_grep({ query = vim.fn.expand("<cword>") }) end)
 vim.keymap.set({ "n", "v" }, "<leader>fb", function() Snacks.picker.buffers() end)
 --LSP
-vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end)
-vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end)
+vim.keymap.set("n", "<leader>gd", function() Snacks.picker.lsp_definitions() end)
+vim.keymap.set("n", "<leader>gD", function() Snacks.picker.lsp_declarations() end)
+vim.keymap.set("n", "<leader>gr", function() Snacks.picker.lsp_references() end)
+vim.keymap.set("n", "<leader>gI", function() Snacks.picker.lsp_implementations() end)
+vim.keymap.set("n", "<leader>gy", function() Snacks.picker.lsp_type_definitions() end)
+vim.keymap.set("n", "<leader>inc", function() Snacks.picker.lsp_incoming_calls() end)
+vim.keymap.set("n", "<leader>oug", function() Snacks.picker.lsp_outgoing_calls() end)
+vim.keymap.set("n", "<leader>sym", function() Snacks.picker.lsp_symbols() end)
+vim.keymap.set("n", "<leader>SYM", function() Snacks.picker.lsp_workspace_symbols() end)
 
 --Buffer
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end)
