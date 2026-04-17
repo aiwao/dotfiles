@@ -43,8 +43,6 @@
     ];
 
     initContent = ''
-      source ${homedir}/.bash_profile
-      
       foreach file (${homedir}/.zsh/scripts/*) {
         source $file
       }
@@ -54,6 +52,9 @@
       prompt pure
 
       alias ls=eza
+
+      eval "$(zoxide init zsh)"
+      eval "$(direnv hook zsh)"
     '';
   };
 
