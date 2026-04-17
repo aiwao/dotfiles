@@ -9,3 +9,8 @@ export EDITOR=nvim
 export GIT_EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="nvim -c ASMANPAGER -"
+
+HM_SESSION_VARS="$HOME/.local/state/home-manager/gcroots/current-home/home-path/etc/profile.d/hm-session-vars.sh"
+if [ -f "$HM_SESSION_VARS" ]; then
+  . "$HM_SESSION_VARS"
+fi
