@@ -46,6 +46,12 @@ vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
 --Terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 vim.keymap.set("t", "<C-Esc>", "<Esc>", { noremap = true }) --Mode escape in Neovim within the Neovim terminal
+--zsh does not approve "o", "O"
+local function to_i_if_terminal(key)
+  return vim.bo.buftype == "terminal" and "i" or key
+end
+vim.keymap.set("n", "o", function() return to_i_if_terminal("o") end, { expr = true, noremap = true })
+vim.keymap.set("n", "O", function() return to_i_if_terminal("O") end, { expr = true, noremap = true })
 
 --Edit
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
