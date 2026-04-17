@@ -54,6 +54,9 @@
       prompt pure
 
       alias ls=eza
+
+      eval "$(zoxide init zsh)"
+      eval "$(direnv hook zsh)"
     '';
   };
 
