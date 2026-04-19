@@ -9,6 +9,7 @@ in
   home.packages =
     with pkgs;
     [
+      license-generator
       gimp
       vlc
       jdk21Pkg
