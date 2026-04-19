@@ -21,7 +21,19 @@ vim.keymap.set({ "n", "v" }, "<leader>ff",
     fff.find_files()
   end
 )
-vim.keymap.set({ "n", "v" }, "<leader>fg", function() fff.live_grep({ query = vim.fn.expand("<cword>") }) end)
+vim.keymap.set({ "n", "v" }, "<leader>fg",
+  function()
+    local current_selected = ""
+    local mode = vim.api.nvim_get_mode().mode
+    if vim.tbl_contains({ "v", "V", "\22" }, mode) then
+      local start_pos = vim.fn.getpos("v")
+      local end_pos = vim.fn.getpos(".")
+      local region = vim.fn.getregion(start_pos, end_pos, { type = mode })
+      current_selected = table.concat(region, "\n")
+    end
+    fff.live_grep({ query = current_selected })
+  end
+)
 vim.keymap.set({ "n", "v" }, "<leader>fb", function() Snacks.picker.buffers() end)
 --LSP
 vim.keymap.set("n", "<leader>gd", function() Snacks.picker.lsp_definitions() end)
