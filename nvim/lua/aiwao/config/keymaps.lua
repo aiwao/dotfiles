@@ -67,6 +67,9 @@ vim.keymap.set("n", "O", function() return to_i_if_terminal("O") end, { expr = t
 
 --Edit
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>fm", function ()
+  vim.lsp.buf.format { async = true }
+end)
 
 --Disable
 vim.keymap.set({ "n", "i", "v", "x", "o"}, "<PageUp>", "<Nop>", { silent = true })
