@@ -51,6 +51,9 @@ vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end)
 vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bm", "<cmd>BufferLinePick<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineCloseLeft<CR>", { silent = true })
+vim.keymap.set("n", "<leader>br", "<cmd>BufferLineCloseRight<CR>", { silent = true })
 
 --Diagnostic
 vim.keymap.set("n", "<leader>zz", vim.diagnostic.open_float)
