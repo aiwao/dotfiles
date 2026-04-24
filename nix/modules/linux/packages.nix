@@ -8,6 +8,8 @@ let
 in
 {
   home.packages = with pkgs; [
+    gimp
+    vlc
     dockerCompat
     podman
     runc
