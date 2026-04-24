@@ -275,6 +275,8 @@
                     in
                     {
                       imports = [
+                        catppuccin.homeModules.catppuccin
+
                         (import ./nix/modules/home {
                           inherit
                             pkgs

@@ -10,8 +10,6 @@ in
     with pkgs;
     [
       license-generator
-      gimp
-      vlc
       jdk21Pkg
       uv
       mullvad
