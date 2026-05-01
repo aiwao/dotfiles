@@ -9,6 +9,11 @@ in
   home.packages =
     with pkgs;
     [
+      colima
+      docker
+      docker-compose
+      docker-buildx
+
       license-generator
       jdk21Pkg
       uv
