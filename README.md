@@ -19,9 +19,6 @@ sudo nix run nix-darwin -- switch --flake .#aiwao
 ### Ubuntu
 ```sh
 nix run .#switch
-# setup rootless podman (not functional 😡)
-sudo apt install uidmap
-sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
 ```
 
 ## Apply the config changes
