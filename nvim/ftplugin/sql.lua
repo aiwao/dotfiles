@@ -1,1 +1,1 @@
-vim.lsp.enable("sqlls")
+vim.lsp.enable("sqls")
