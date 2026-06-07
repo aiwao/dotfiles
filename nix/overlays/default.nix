@@ -4,6 +4,7 @@ let
   overlayFiles = [
     ./roots.nix
     ./git-now.nix
+    ./codex-router.nix
   ];
 
   # Apply each overlay and merge results
