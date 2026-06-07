@@ -10,3 +10,6 @@ eval "$(direnv hook bash)"
 if [[ -t 0 && $- = *i* ]] && [[ ! $ZSH_VERSION ]]; then
   exec zsh
 fi
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"

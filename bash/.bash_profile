@@ -6,3 +6,6 @@ HM_SESSION_VARS="$HOME/.local/state/home-manager/gcroots/current-home/home-path/
 if [ -f "$HM_SESSION_VARS" ]; then
   . "$HM_SESSION_VARS"
 fi
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
