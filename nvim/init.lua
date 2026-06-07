@@ -4,6 +4,7 @@ vim.pack.add {
   "https://github.com/mfussenegger/nvim-jdtls",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/mfussenegger/nvim-dap",
+  "https://github.com/OXY2DEV/markview.nvim",
 }
 require("aiwao.plugin.rustaceanvim")
 require("aiwao.plugin.blink-cmp")
