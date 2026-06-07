@@ -14,6 +14,7 @@ in
       docker-compose
       docker-buildx
 
+      codex-router
       license-generator
       jdk21Pkg
       uv
