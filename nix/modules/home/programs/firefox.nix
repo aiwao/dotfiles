@@ -65,12 +65,6 @@ in
           updates_disabled = true;
         };
 
-        "wappalyzer@crunchlabz.com" = {
-          install_url = moz "wappalyzer";
-          installation_mode = "force_installed";
-          updates_disabled = true;
-        };
-
         "complexity@ngocdg" = {
           install_url = moz "complexity";
           installation_mode = "force_installed";
