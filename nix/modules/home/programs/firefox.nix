@@ -76,6 +76,12 @@ in
           installation_mode = "force_installed";
           updates_disabled = true;
         };
+
+        "remote-edit-bridge@140.lol" = {
+          install_url = "https://github.com/aiwao/wbsb-remote-edit/releases/download/v0.0.2/wbsb-remote-edit-firefox-0.0.2.xpi";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
       };
 
       # Extension configuration 
