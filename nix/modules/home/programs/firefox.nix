@@ -65,12 +65,6 @@ in
           updates_disabled = true;
         };
 
-        "complexity@ngocdg" = {
-          install_url = moz "complexity";
-          installation_mode = "force_installed";
-          updates_disabled = true;
-        };
-
         "FirefoxColor@mozilla.com" = {
           install_url = moz "firefox-color";
           installation_mode = "force_installed";
@@ -122,21 +116,19 @@ in
             "urlhaus-1"
           ];
         };
-
-        "wappalyzer@crunchlabz.com".tracking = false;
       };
 
       Bookmarks = [
         {
           Title = "Gmail";
           URL = "https://mail.google.com/mail/u/0/#inbox";
-          Favicon = "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico";
+          Favicon = "https://www.google.com/s2/favicons?domain=mail.google.com";
           Placement = "toolbar";
         }
         {
           Title = "Github";
           URL = "https://github.com";
-          Favicon = "https://github.com/favicon.ico";
+          Favicon = "https://www.google.com/s2/favicons?domain=github.com";
           Placement = "toolbar";
         }
         {
@@ -148,19 +140,25 @@ in
         {
           Title = "Nixpkgs";
           URL = "https://search.nixos.org/packages";
-          Favicon = "https://search.nixos.org/packages/favicon-96x96.png";
+          Favicon = "https://www.google.com/s2/favicons?domain=search.nixos.org";
           Placement = "toolbar";
         }
         {
-          Title = "Perplexity";
-          URL = "https://www.perplexity.ai";
-          Favicon = "https://www.perplexity.ai/favicon.svg";
+          Title = "ChatGPT";
+          URL = "https://chatgpt.com";
+          Favicon = "https://www.google.com/s2/favicons?domain=chatgpt.com";
           Placement = "toolbar";
         }
         {
           Title = "オワタあんてな";
           URL = "https://owata.chann.net";
-          Favicon = "https://owata.chann.net/assets/ico/favicon.ico";
+          Favicon = "https://www.google.com/s2/favicons?domain=owata.chann.net";
+          Placement = "toolbar";
+        }
+        {
+          Title = "Gadgeteer";
+          URL = "https://gadgeteer.jp";
+          Favicon = "https://www.google.com/s2/favicons?domain=gadgeteer.jp";
           Placement = "toolbar";
         }
       ];
