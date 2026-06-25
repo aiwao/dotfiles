@@ -68,9 +68,7 @@ jobs:
       - name: Create pull request body
         run: |
           {
-            echo 'Automated daily update for `flake.lock`.'
-            echo
-            echo 'Scheduled for 06:00 JST.'
+            echo '# Automated flake.lock update'
             echo
             echo '```diff'
             git --no-pager diff -- flake.lock
