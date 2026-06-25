@@ -67,11 +67,32 @@ jobs:
         id: flake-lock
         run: echo "hash=$(sha256sum flake.lock | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
 
+      - name: Collect package manifests
+        run: |
+          cp flake.lock "$RUNNER_TEMP/flake.lock.after"
+
+          restore_lock() {
+            cp "$RUNNER_TEMP/flake.lock.after" flake.lock
+          }
+          trap restore_lock EXIT
+
+          cp "$RUNNER_TEMP/flake.lock.before" flake.lock
+          python3 -B .github/scripts/flake-package-manifest.py \
+            > "$RUNNER_TEMP/flake-packages.before.json"
+
+          restore_lock
+          trap - EXIT
+
+          python3 -B .github/scripts/flake-package-manifest.py \
+            > "$RUNNER_TEMP/flake-packages.after.json"
+
       - name: Create pull request body
         run: |
-          python3 .github/scripts/flake-update-summary.py \
+          python3 -B .github/scripts/flake-update-summary.py \
             "$RUNNER_TEMP/flake.lock.before" \
             flake.lock \
+            --package-manifest-before "$RUNNER_TEMP/flake-packages.before.json" \
+            --package-manifest-after "$RUNNER_TEMP/flake-packages.after.json" \
             > "$RUNNER_TEMP/flake-update-summary.md"
 
           {

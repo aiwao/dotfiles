@@ -4,6 +4,9 @@ import json
 from pathlib import Path
 
 
+MAX_PACKAGE_REBUILDS = 20
+
+
 def locked(node):
     return (node or {}).get("locked")
 
@@ -57,9 +60,132 @@ def compare(old_node, new_node):
     return ""
 
 
-def print_summary(before_path, after_path):
-    before = json.loads(before_path.read_text())
-    after = json.loads(after_path.read_text())
+def load_json(path):
+    return json.loads(path.read_text())
+
+
+def root_input_node(lock, input_name):
+    nodes = lock.get("nodes", {})
+    root_name = lock.get("root", "root")
+    root_node = nodes.get(root_name, {})
+    target = root_node.get("inputs", {}).get(input_name)
+    return target if isinstance(target, str) else None
+
+
+def root_input_changed(before, after, input_name):
+    old_node = root_input_node(before, input_name)
+    new_node = root_input_node(after, input_name)
+    if not old_node or not new_node:
+        return False
+    return locked(before.get("nodes", {}).get(old_node)) != locked(
+        after.get("nodes", {}).get(new_node)
+    )
+
+
+def display_version(package):
+    return package.get("version") or package.get("drvName") or "unknown"
+
+
+def package_map(packages):
+    return {package["name"]: package for package in packages}
+
+
+def normalize_manifests(data):
+    if isinstance(data, list):
+        return data
+    if "targets" in data:
+        return data["targets"]
+    return [data]
+
+
+def compare_package_manifests(before_manifest, after_manifest):
+    old_targets = {
+        target["system"]: target
+        for target in normalize_manifests(before_manifest)
+    }
+    new_targets = {
+        target["system"]: target
+        for target in normalize_manifests(after_manifest)
+    }
+
+    version_updates = []
+    rebuilds = []
+    added = []
+    removed = []
+
+    for system in sorted(set(old_targets) | set(new_targets)):
+        old_packages = package_map(old_targets.get(system, {}).get("packages", []))
+        new_packages = package_map(new_targets.get(system, {}).get("packages", []))
+        package_names = sorted(set(old_packages) | set(new_packages))
+
+        for name in package_names:
+            old_package = old_packages.get(name)
+            new_package = new_packages.get(name)
+            if old_package is None:
+                added.append((system, name, display_version(new_package)))
+                continue
+            if new_package is None:
+                removed.append((system, name, display_version(old_package)))
+                continue
+
+            old_version = display_version(old_package)
+            new_version = display_version(new_package)
+            if old_version != new_version:
+                version_updates.append((system, name, old_version, new_version))
+            elif old_package.get("drvPath") != new_package.get("drvPath"):
+                rebuilds.append((system, name, old_version))
+
+    return version_updates, rebuilds, added, removed
+
+
+def print_package_summary(package_manifest_before, package_manifest_after):
+    version_updates, rebuilds, added, removed = compare_package_manifests(
+        package_manifest_before,
+        package_manifest_after,
+    )
+
+    print("## Package updates")
+    print()
+    print("Direct `home.packages` evaluated for configured systems.")
+    print()
+
+    if version_updates:
+        print("| System | Package | Before | After |")
+        print("| --- | --- | --- | --- |")
+        for system, name, old_version, new_version in version_updates:
+            print(f"| `{system}` | `{name}` | `{old_version}` | `{new_version}` |")
+    else:
+        print("No direct package version changes detected.")
+
+    if added:
+        print()
+        print("Added packages:")
+        for system, name, version in added:
+            print(f"- `{system}`: `{name}` `{version}`")
+
+    if removed:
+        print()
+        print("Removed packages:")
+        for system, name, version in removed:
+            print(f"- `{system}`: `{name}` `{version}`")
+
+    if rebuilds:
+        shown = rebuilds[:MAX_PACKAGE_REBUILDS]
+        rebuild_list = ", ".join(f"`{system}/{name}`" for system, name, _ in shown)
+        remaining = len(rebuilds) - len(shown)
+        suffix = f", and {remaining} more" if remaining else ""
+        print()
+        print(f"Rebuilt without version changes: {rebuild_list}{suffix}.")
+
+
+def print_summary(
+    before_path,
+    after_path,
+    package_manifest_before_path=None,
+    package_manifest_after_path=None,
+):
+    before = load_json(before_path)
+    after = load_json(after_path)
 
     old_nodes = before.get("nodes", {})
     new_nodes = after.get("nodes", {})
@@ -89,6 +215,17 @@ def print_summary(before_path, after_path):
     else:
         print("No flake input changes detected.")
 
+    if (
+        package_manifest_before_path
+        and package_manifest_after_path
+        and root_input_changed(before, after, "nixpkgs")
+    ):
+        print()
+        print_package_summary(
+            load_json(package_manifest_before_path),
+            load_json(package_manifest_after_path),
+        )
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -96,12 +233,27 @@ def parse_args():
     )
     parser.add_argument("before", type=Path, help="Path to the previous flake.lock")
     parser.add_argument("after", type=Path, help="Path to the updated flake.lock")
+    parser.add_argument(
+        "--package-manifest-before",
+        type=Path,
+        help="Path to package manifest JSON from the previous flake.lock",
+    )
+    parser.add_argument(
+        "--package-manifest-after",
+        type=Path,
+        help="Path to package manifest JSON from the updated flake.lock",
+    )
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    print_summary(args.before, args.after)
+    print_summary(
+        args.before,
+        args.after,
+        args.package_manifest_before,
+        args.package_manifest_after,
+    )
 
 
 if __name__ == "__main__":
