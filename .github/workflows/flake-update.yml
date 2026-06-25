@@ -69,93 +69,10 @@ jobs:
 
       - name: Create pull request body
         run: |
-          python3 > "$RUNNER_TEMP/flake-update-summary.md" <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          before_path = Path(os.environ["RUNNER_TEMP"]) / "flake.lock.before"
-          after_path = Path("flake.lock")
-
-          before = json.loads(before_path.read_text())
-          after = json.loads(after_path.read_text())
-
-          def locked(node):
-              return (node or {}).get("locked")
-
-          def source(node):
-              data = locked(node) or {}
-              owner = data.get("owner")
-              repo = data.get("repo")
-              if data.get("type") == "github" and owner and repo:
-                  return f"[{owner}/{repo}](https://github.com/{owner}/{repo})"
-              if data.get("url"):
-                  return f"`{data['url']}`"
-              if owner and repo:
-                  return f"`{owner}/{repo}`"
-              if data.get("type"):
-                  return f"`{data['type']}`"
-              return ""
-
-          def short_rev(rev):
-              return rev[:12]
-
-          def value(node):
-              data = locked(node) or {}
-              rev = data.get("rev")
-              owner = data.get("owner")
-              repo = data.get("repo")
-              if rev and data.get("type") == "github" and owner and repo:
-                  return f"[`{short_rev(rev)}`](https://github.com/{owner}/{repo}/commit/{rev})"
-              if rev:
-                  return f"`{short_rev(rev)}`"
-              if "lastModified" in data:
-                  return f"`{data['lastModified']}`"
-              if "narHash" in data:
-                  return f"`{data['narHash'][:18]}...`"
-              return "`missing`"
-
-          def compare(old_node, new_node):
-              old = locked(old_node) or {}
-              new = locked(new_node) or {}
-              old_rev = old.get("rev")
-              new_rev = new.get("rev")
-              owner = new.get("owner") or old.get("owner")
-              repo = new.get("repo") or old.get("repo")
-              lock_type = new.get("type") or old.get("type")
-              if lock_type == "github" and owner and repo and old_rev and new_rev:
-                  url = f"https://github.com/{owner}/{repo}/compare/{old_rev}...{new_rev}"
-                  return f"[compare]({url})"
-              return ""
-
-          old_nodes = before.get("nodes", {})
-          new_nodes = after.get("nodes", {})
-          names = sorted(set(old_nodes) | set(new_nodes))
-          updates = [
-              name
-              for name in names
-              if locked(old_nodes.get(name)) != locked(new_nodes.get(name))
-          ]
-
-          print("# Automated flake.lock update")
-          print()
-
-          if updates:
-              print("## Updated inputs")
-              print()
-              print("| Input | Source | Before | After | Diff |")
-              print("| --- | --- | --- | --- | --- |")
-              for name in updates:
-                  old_node = old_nodes.get(name)
-                  new_node = new_nodes.get(name)
-                  print(
-                      f"| `{name}` | {source(new_node or old_node)} | "
-                      f"{value(old_node)} | {value(new_node)} | "
-                      f"{compare(old_node, new_node)} |"
-                  )
-          else:
-              print("No flake input changes detected.")
-          PY
+          python3 .github/scripts/flake-update-summary.py \
+            "$RUNNER_TEMP/flake.lock.before" \
+            flake.lock \
+            > "$RUNNER_TEMP/flake-update-summary.md"
 
           {
             cat "$RUNNER_TEMP/flake-update-summary.md"
