@@ -59,7 +59,9 @@ jobs:
         uses: ./.github/actions/setup-nix
 
       - name: Update flake lock
-        run: nix flake update
+        run: |
+          cp flake.lock "$RUNNER_TEMP/flake.lock.before"
+          nix flake update
 
       - name: Compute flake lock hash
         id: flake-lock
@@ -67,12 +69,22 @@ jobs:
 
       - name: Create pull request body
         run: |
+          python3 .github/scripts/flake-update-summary.py \
+            "$RUNNER_TEMP/flake.lock.before" \
+            flake.lock \
+            > "$RUNNER_TEMP/flake-update-summary.md"
+
           {
-            echo '# Automated flake.lock update'
+            cat "$RUNNER_TEMP/flake-update-summary.md"
+            echo
+            echo '<details>'
+            echo '<summary>Raw flake.lock diff</summary>'
             echo
             echo '```diff'
             git --no-pager diff -- flake.lock
             echo '```'
+            echo
+            echo '</details>'
           } > "$RUNNER_TEMP/flake-update-body.md"
 
       - name: Create pull request
