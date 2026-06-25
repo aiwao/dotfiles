@@ -1,0 +1,76 @@
+name: 'Maintenance: flake update'
+
+on:
+  schedule:
+    # 06:00 JST
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Cancel if automatic update pull request exists
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          existing_pr="$(
+            gh pr list \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --state open \
+              --label automatic-update \
+              --json title,url \
+              --jq '[.[] | select(.title | test("^[0-9a-f]{64}$"))] | .[0].url // ""'
+          )"
+
+          if [ -n "$existing_pr" ]; then
+            echo "Found existing automatic update pull request: $existing_pr"
+            gh run cancel "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY"
+            sleep 60
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: main
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Setup Nix
+        uses: ./.github/actions/setup-nix
+
+      - name: Update flake lock
+        run: nix flake update
+
+      - name: Compute flake lock hash
+        id: flake-lock
+        run: echo "hash=$(sha256sum flake.lock | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          branch: automation/flake-update
+          base: main
+          delete-branch: true
+          commit-message: 'chore(nix): automatic flake update ${{ steps.flake-lock.outputs.hash }}'
+          title: '${{ steps.flake-lock.outputs.hash }}'
+          body: |
+            Automated daily update for `flake.lock`.
+
+            Scheduled for 06:00 JST.
+          labels: automatic-update
