@@ -26,7 +26,7 @@ jobs:
               - 'flake.nix'
               - 'flake.lock'
               - 'nix/**'
-              - '.github/workflows/nix-build.yaml'
+              - '.github/workflows/nix-build.yml'
               - '.github/actions/setup-nix/**'
 
   build-ubuntu:
