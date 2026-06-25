@@ -1,5 +1,5 @@
 name: 'Setup Nix'
-description: 'Install Nix with flake config accepted and cache enabled'
+description: 'Install Nix with flake config accepted'
 runs:
   using: 'composite'
   steps:
@@ -8,9 +8,3 @@ runs:
       with:
         nix_conf: |
           accept-flake-config = true
-
-    - name: Cache Nix store
-      uses: nix-community/cache-nix-action@7df957e333c1e5da7721f60227dbba6d06080569 # v7.0.2
-      with:
-        primary-key: nix-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('flake.lock') }}
-        restore-prefixes-first-match: nix-${{ runner.os }}-${{ runner.arch }}-
