@@ -6,6 +6,13 @@ import subprocess
 import sys
 
 
+DEFAULT_SYSTEMS = [
+    "aarch64-darwin",
+    "x86_64-linux",
+    "aarch64-linux",
+]
+
+
 def nix_expr(system):
     return (
         'import ./.github/scripts/flake-package-manifest.nix '
@@ -30,23 +37,6 @@ def collect_manifest(system):
     return json.loads(result.stdout)
 
 
-def current_system():
-    result = subprocess.run(
-        [
-            "nix",
-            "eval",
-            "--raw",
-            "--impure",
-            "--expr",
-            "builtins.currentSystem",
-        ],
-        check=True,
-        stdout=subprocess.PIPE,
-        text=True,
-    )
-    return result.stdout.strip()
-
-
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Collect package versions from evaluated Home Manager configs.",
@@ -68,7 +58,7 @@ def validate_systems(systems):
 
 def main():
     args = parse_args()
-    systems = args.systems or [current_system()]
+    systems = args.systems or DEFAULT_SYSTEMS
     validate_systems(systems)
 
     json.dump(
