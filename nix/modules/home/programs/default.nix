@@ -10,7 +10,6 @@
 {
   imports = [
     ./firefox.nix
-    ./fish.nix
     ./bat.nix
     ./direnv.nix
     ./neovim.nix

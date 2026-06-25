@@ -25,7 +25,7 @@ in
 
     # Set user shell on activation
     activationScripts.postActivation.text = ''
-      echo "Setting login shell to fish..."
+      echo "Setting login shell to zsh..."
       sudo chsh -s ${zshPath} ${username} || true
     '';
 

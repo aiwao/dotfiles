@@ -23,7 +23,6 @@ final: _prev: {
     postInstall = ''
       installShellCompletion --cmd roots \
         --bash <($out/bin/roots completion bash) \
-        --fish <($out/bin/roots completion fish) \
         --zsh <($out/bin/roots completion zsh)
     '';
 

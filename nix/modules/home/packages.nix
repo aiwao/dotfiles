@@ -23,7 +23,6 @@ in
       wezterm
       pure-prompt
       zsh
-      fish
       curl
       devenv
       htop

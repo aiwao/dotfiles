@@ -14,9 +14,6 @@ in
   home.activation.linkDotfilesCommon = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
     ${helpers.activation.mkLinkForce}
 
-    # Fish shell configuration
-    link_force "${dotfilesDir}/fish" "${configHome}/fish"
-
     # Zsh scripts
     link_force "${dotfilesDir}/zsh/scripts" "${homeDirectory}/.zsh/scripts"
 
