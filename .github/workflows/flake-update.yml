@@ -24,6 +24,12 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
+      - name: Get GitHub App bot user ID
+        id: app-user
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: echo "id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+
       - name: Cancel if automatic update pull request exists
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -67,6 +73,8 @@ jobs:
           base: main
           delete-branch: true
           commit-message: 'chore(nix): automatic flake update ${{ steps.flake-lock.outputs.hash }}'
+          committer: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
+          author: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
           title: '${{ steps.flake-lock.outputs.hash }}'
           body: |
             Automated daily update for `flake.lock`.
