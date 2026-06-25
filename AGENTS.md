@@ -1,27 +1,30 @@
 # AGENTS.md
 
-## プロジェクト概要
+## Project Overview
 
-- このリポジトリは `aiwao` ユーザー向けの個人 dotfiles です。
-- `flake.nix` を入口に、Nix で macOS と Linux の開発環境を管理します。
-- macOS は nix-darwin と Home Manager、Linux は Home Manager と
-  system-manager を使います。
-- 手書きの設定ファイルはリポジトリ内に置き、Home Manager の activation
-  でホームディレクトリや XDG 配下へ symlink します。
-- ディレクトリ固有の編集方針や検証方法は、各ディレクトリ配下の
-  `AGENTS.md` を参照してください。
+- This repository contains personal dotfiles for the `aiwao` user.
+- `flake.nix` is the main entry point for managing macOS and Linux development
+  environments with Nix.
+- macOS is managed with nix-darwin and Home Manager. Linux is managed with Home
+  Manager and system-manager.
+- Hand-authored configuration files live in this repository and are symlinked
+  into the home directory or XDG paths by Home Manager activation scripts.
+- For directory-specific editing guidance and validation steps, read the
+  `AGENTS.md` file in each relevant subdirectory.
 
-## プロジェクトファイル構造
+## Project File Structure
 
-- `flake.nix`: flake inputs、overlays、app commands、macOS/Linux の構成定義。
-- `flake.lock`: flake input のロックファイル。
-- `README.md`: セットアップ、build、switch、update の基本手順。
-- `nix/`: Home Manager、nix-darwin、system-manager、overlays の Nix 設定。
-- `nvim/`: 現行の Neovim 設定。
-- `nvim0.11.5/`: バージョン固定または旧世代の Neovim 設定。
-- `fish/`: Fish shell 設定、関数、テーマ。
-- `zsh/`: Zsh 環境変数と読み込み用スクリプト。
-- `wezterm/`: WezTerm の Lua 設定。
-- `bash/`: Bash の profile/rc 設定。
-- `efm-langserver/`: EFM Language Server 設定。
-- `.cobra.yaml`: cobra-cli 設定。
+- `flake.nix`: flake inputs, overlays, app commands, and macOS/Linux
+  configuration definitions.
+- `flake.lock`: lock file for flake inputs.
+- `README.md`: basic setup, build, switch, and update instructions.
+- `nix/`: Nix configuration for Home Manager, nix-darwin, system-manager, and
+  overlays.
+- `nvim/`: active Neovim configuration.
+- `nvim0.11.5/`: version-pinned or legacy Neovim configuration.
+- `fish/`: Fish shell configuration, functions, and themes.
+- `zsh/`: Zsh environment variables and sourced scripts.
+- `wezterm/`: WezTerm Lua configuration.
+- `bash/`: Bash profile and rc configuration.
+- `efm-langserver/`: EFM Language Server configuration.
+- `.cobra.yaml`: cobra-cli configuration.
