@@ -1,0 +1,51 @@
+name: 'CI: Nix check'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      nix: ${{ steps.filter.outputs.nix }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        id: filter
+        with:
+          filters: |
+            nix:
+              - 'flake.nix'
+              - 'flake.lock'
+              - 'nix/**'
+              - '.github/workflows/nix-build.yml'
+              - '.github/actions/setup-nix/**'
+
+  check:
+    needs: changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Skip if no Nix changes
+        if: needs.changes.outputs.nix != 'true' && github.event_name != 'workflow_dispatch'
+        run: echo "No Nix-related changes detected, skipping check"
+
+      - name: Checkout repository
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Setup Nix
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        uses: ./.github/actions/setup-nix
+
+      - name: Check flake outputs
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        run: nix flake check --no-build --all-systems --show-trace
