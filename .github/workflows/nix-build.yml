@@ -1,42 +1,78 @@
-name: Nix build
+name: 'CI: Nix build'
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 concurrency:
-  group: nix-build-${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: ${{ matrix.system }}
-    runs-on: ${{ matrix.runner }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - system: x86_64-linux
-            runner: ubuntu-latest
-          - system: aarch64-linux
-            runner: ubuntu-24.04-arm
-          - system: aarch64-darwin
-            runner: macos-15
-
+  changes:
+    runs-on: ubuntu-24.04-arm
+    outputs:
+      nix: ${{ steps.filter.outputs.nix }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        id: filter
         with:
-          extra_nix_config: |
-            extra-substituters = https://cache.nixos.org https://cache.numtide.com https://devenv.cachix.org https://aiwao.cachix.org
-            extra-trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g= devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw= aiwao.cachix.org-1:b2LbtWNvJeL/qb1B6TYOMK+apaCps4SCbzlPRfSQIms=
+          filters: |
+            nix:
+              - 'flake.nix'
+              - 'flake.lock'
+              - 'nix/**'
+              - '.github/workflows/nix-build.yaml'
+              - '.github/actions/setup-nix/**'
 
-      - name: Build Nix configuration
-        run: nix run .#build
+  build-ubuntu:
+    needs: changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Skip if no Nix changes
+        if: needs.changes.outputs.nix != 'true' && github.event_name != 'workflow_dispatch'
+        run: echo "No Nix-related changes detected, skipping build"
+
+      - name: Checkout repository
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Setup Nix
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        uses: ./.github/actions/setup-nix
+
+      - name: Build Linux Home Manager configuration
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          nix build .#homeConfigurations.aiwao-x86_64-linux.activationPackage \
+            --print-build-logs \
+            --show-trace
+
+  build-ubuntu-arm:
+    needs: changes
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 30
+    steps:
+      - name: Skip if no Nix changes
+        if: needs.changes.outputs.nix != 'true' && github.event_name != 'workflow_dispatch'
+        run: echo "No Nix-related changes detected, skipping build"
+
+      - name: Checkout repository
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Setup Nix
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        uses: ./.github/actions/setup-nix
+
+      - name: Build Linux Home Manager configuration for aarch64
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          nix build .#homeConfigurations.aiwao-aarch64-linux.activationPackage \
+            --print-build-logs \
+            --show-trace
