@@ -144,12 +144,6 @@ in
           Placement = "toolbar";
         }
         {
-          Title = "Perplexity";
-          URL = "https://www.perplexity.ai";
-          Favicon = "https://www.perplexity.ai/favicon.svg";
-          Placement = "toolbar";
-        }
-        {
           Title = "オワタあんてな";
           URL = "https://owata.chann.net";
           Favicon = "https://owata.chann.net/assets/ico/favicon.ico";
