@@ -7,6 +7,26 @@
 {
   programs.zsh = {
     enable = true;
+
+    envExtra = ''
+      export XDG_CONFIG_HOME="$HOME/.config"
+      export XDG_DATA_HOME="$HOME/.local/share"
+      export XDG_CACHE_HOME="$HOME/.cache"
+      export XDG_STATE_HOME="$HOME/.local/state"
+
+      export LC_ALL="en_US.UTF-8"
+
+      export EDITOR=nvim
+      export GIT_EDITOR=nvim
+      export VISUAL=nvim
+      export MANPAGER="nvim -c ASMANPAGER -"
+
+      export PATH="$HOME/.local/bin:$PATH"
+
+      # Vite+ bin (https://viteplus.dev)
+      . "$HOME/.vite-plus/env"
+    '';
+
     plugins = [
       {
         name = "zsh-completions";
@@ -59,6 +79,8 @@
   };
 
   catppuccin.zsh-syntax-highlighting.enable = true;
+
+  home.file."./.zshenv".force = true;
 
   home.activation.zshAbbr = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ${pkgs.zsh}/bin/zsh -c "
