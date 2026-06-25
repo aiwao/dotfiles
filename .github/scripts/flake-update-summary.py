@@ -146,7 +146,7 @@ def print_package_summary(package_manifest_before, package_manifest_after):
 
     print("## Package updates")
     print()
-    print("Direct `home.packages` evaluated for configured systems.")
+    print("Evaluated Home Manager `config.home.packages` for selected systems.")
     print()
 
     if version_updates:

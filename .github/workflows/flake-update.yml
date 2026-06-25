@@ -78,12 +78,14 @@ jobs:
 
           cp "$RUNNER_TEMP/flake.lock.before" flake.lock
           python3 -B .github/scripts/flake-package-manifest.py \
+            --system x86_64-linux \
             > "$RUNNER_TEMP/flake-packages.before.json"
 
           restore_lock
           trap - EXIT
 
           python3 -B .github/scripts/flake-package-manifest.py \
+            --system x86_64-linux \
             > "$RUNNER_TEMP/flake-packages.after.json"
 
       - name: Create pull request body

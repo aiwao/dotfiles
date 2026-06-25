@@ -1,42 +1,18 @@
 { system }:
 let
-  root = ../..;
-  flake = builtins.getFlake (toString root);
-  inherit (flake.inputs) nixpkgs;
-  lib = nixpkgs.lib;
-
+  username = "aiwao";
+  flake = builtins.getFlake (toString ../..);
   isDarwin = builtins.match ".*-darwin" system != null;
-  isLinux = builtins.match ".*-linux" system != null;
 
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-    overlays =
-      [
-        flake.inputs.neovim-nightly-overlay.overlays.default
-        (import ../../nix/overlays/default.nix)
-      ]
-      ++ lib.optionals isLinux [
-        flake.inputs.nixgl.overlay
-      ];
-  };
-
-  packageModules =
-    [
-      (import ../../nix/modules/home/packages.nix { inherit pkgs lib; })
-    ]
-    ++ lib.optionals isDarwin [
-      (import ../../nix/modules/darwin/packages.nix { inherit pkgs lib; })
-    ]
-    ++ lib.optionals isLinux [
-      (import ../../nix/modules/linux/packages.nix { inherit pkgs lib; })
-    ];
-
-  packages = lib.concatMap (module: module.home.packages or [ ]) packageModules;
+  packages =
+    if isDarwin then
+      flake.darwinConfigurations.${username}.config.home-manager.users.${username}.home.packages
+    else
+      flake.homeConfigurations."${username}-${system}".config.home.packages;
 
   packageInfo = package: {
-    name = lib.getName package;
-    version = lib.getVersion package;
+    name = flake.inputs.nixpkgs.lib.getName package;
+    version = flake.inputs.nixpkgs.lib.getVersion package;
     drvName = package.name or (baseNameOf (toString package));
     drvPath = toString package.drvPath;
   };
