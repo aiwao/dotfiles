@@ -65,6 +65,18 @@ jobs:
         id: flake-lock
         run: echo "hash=$(sha256sum flake.lock | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
 
+      - name: Create pull request body
+        run: |
+          {
+            echo 'Automated daily update for `flake.lock`.'
+            echo
+            echo 'Scheduled for 06:00 JST.'
+            echo
+            echo '```diff'
+            git --no-pager diff -- flake.lock
+            echo '```'
+          } > "$RUNNER_TEMP/flake-update-body.md"
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
@@ -76,8 +88,5 @@ jobs:
           committer: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
           author: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
           title: '${{ steps.flake-lock.outputs.hash }}'
-          body: |
-            Automated daily update for `flake.lock`.
-
-            Scheduled for 06:00 JST.
+          body-path: ${{ runner.temp }}/flake-update-body.md
           labels: automatic-update
