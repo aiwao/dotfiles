@@ -17,9 +17,6 @@ in
     # Fish shell configuration
     link_force "${dotfilesDir}/fish" "${configHome}/fish"
 
-    # Zsh environment
-    link_force "${dotfilesDir}/zsh/.zshenv" "${homeDirectory}/.zshenv"
-
     # Zsh scripts
     link_force "${dotfilesDir}/zsh/scripts" "${homeDirectory}/.zsh/scripts"
 
