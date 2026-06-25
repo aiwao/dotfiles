@@ -155,6 +155,12 @@ in
           Favicon = "https://owata.chann.net/assets/ico/favicon.ico";
           Placement = "toolbar";
         }
+        {
+          Title = "Gadgeteer";
+          URL = "https://gadgeteer.jp";
+          Favicon = "https://www.google.com/s2/favicons?domain=gadgeteer.jp";
+          Placement = "toolbar";
+        }
       ];
     };
     
