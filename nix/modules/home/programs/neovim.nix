@@ -21,6 +21,8 @@ in
   programs.neovim = {
     enable = true;
     sideloadInitLua = true;
+    withPython3 = false;
+    withRuby = false;
 
     plugins = [
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
