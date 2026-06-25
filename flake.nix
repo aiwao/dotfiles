@@ -237,65 +237,6 @@
                 ''
               );
             };
-
-            preview-update = {
-              type = "app";
-              program = toString (
-                localPkgs.writeShellScript "flake-preview-update" ''
-                  set -e
-
-                  tmpdir="$(mktemp -d)"
-                  trap 'rm -rf "$tmpdir"' EXIT
-
-                  proposed_lock="$tmpdir/flake.lock"
-
-                  echo "Resolving flake updates without touching ./flake.lock..."
-                  nix flake update --output-lock-file "$proposed_lock"
-
-                  echo
-                  echo "flake.lock diff:"
-                  if git --no-pager diff --no-index -- flake.lock "$proposed_lock"; then
-                    echo "No flake input updates available."
-                    exit 0
-                  else
-                    status="$?"
-                    if [ "$status" -ne 1 ]; then
-                      exit "$status"
-                    fi
-                  fi
-
-                  echo
-                  echo "Building current and proposed ${if isDarwin then "darwin" else "Linux"} closures..."
-                  ${
-                    if isDarwin then
-                      ''
-                        current_system="$(nix build .#darwinConfigurations.${hostname}.system --no-link --print-out-paths)"
-                        proposed_system="$(nix build .#darwinConfigurations.${hostname}.system --reference-lock-file "$proposed_lock" --no-link --print-out-paths)"
-
-                        echo
-                        echo "Package closure diff:"
-                        nix store diff-closures "$current_system" "$proposed_system"
-                      ''
-                    else
-                      ''
-                        current_home="$(nix build .#homeConfigurations.${username}-${system}.activationPackage --no-link --print-out-paths)"
-                        proposed_home="$(nix build .#homeConfigurations.${username}-${system}.activationPackage --reference-lock-file "$proposed_lock" --no-link --print-out-paths)"
-
-                        current_system="$(nix build .#systemConfigs.${system}.${username} --no-link --print-out-paths)"
-                        proposed_system="$(nix build .#systemConfigs.${system}.${username} --reference-lock-file "$proposed_lock" --no-link --print-out-paths)"
-
-                        echo
-                        echo "Home Manager closure diff:"
-                        nix store diff-closures "$current_home" "$proposed_home"
-
-                        echo
-                        echo "System Manager closure diff:"
-                        nix store diff-closures "$current_system" "$proposed_system"
-                      ''
-                  }
-                ''
-              );
-            };
           };
         };
 
