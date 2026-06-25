@@ -6,14 +6,11 @@ This file applies to Zsh configuration under `zsh/`.
 
 ## Directory Overview
 
-- `.zshenv`: environment setup linked into the user's home directory.
 - `scripts/`: Zsh scripts sourced by the Home Manager Zsh module.
-- `zshrc_is_managed_by_home_manager`: marker/documentation file.
 
 ## Change Guidelines
 
 - Edit repository files, not linked files under the user's home directory.
-- Keep environment variables and early shell setup in `.zshenv`.
 - Put reusable interactive helpers in `scripts/`.
 - Home Manager sources every file under `${HOME}/.zsh/scripts/*`; avoid adding
   non-Zsh files there.
