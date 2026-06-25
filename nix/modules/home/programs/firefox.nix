@@ -116,8 +116,6 @@ in
             "urlhaus-1"
           ];
         };
-
-        "wappalyzer@crunchlabz.com".tracking = false;
       };
 
       Bookmarks = [
