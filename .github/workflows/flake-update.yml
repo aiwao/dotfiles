@@ -30,16 +30,20 @@ jobs:
       - name: Update flake lock
         run: nix flake update
 
+      - name: Compute flake lock hash
+        id: flake-lock
+        run: echo "hash=$(sha256sum flake.lock | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           branch: automation/flake-update
           base: main
           delete-branch: true
-          commit-message: 'chore(nix): update flake lock'
-          title: 'chore(nix): update flake lock'
+          commit-message: 'chore(nix): automatic flake update ${{ steps.flake-lock.outputs.hash }}'
+          title: '${{ steps.flake-lock.outputs.hash }}'
           body: |
             Automated daily update for `flake.lock`.
 
             Scheduled for 06:00 JST.
-          labels: dependencies,nix
+          labels: automatic-update
