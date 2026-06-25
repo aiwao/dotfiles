@@ -68,4 +68,18 @@ in
       };
     };
   };
+
+  launchd.daemons = {
+    mullvad-daemon = {
+      serviceConfig = {
+        ProgramArguments = [
+          "${pkgs.mullvad}/bin/mullvad-daemon"
+          "-v"
+          "--disable-stdout-timestamps"
+        ];
+        RunAtLoad = true;
+        KeepAlive = true;
+      };
+    };
+  };
 }
