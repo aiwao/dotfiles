@@ -32,7 +32,6 @@ jobs:
             gh pr list \
               --repo "$GITHUB_REPOSITORY" \
               --base main \
-              --state open \
               --label automatic-update \
               --json title,url \
               --jq '[.[] | select(.title | test("^[0-9a-f]{64}$"))] | .[0].url // ""'
