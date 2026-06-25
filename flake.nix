@@ -231,51 +231,8 @@
               program = toString (
                 localPkgs.writeShellScript "flake-update" ''
                   set -e
-
-                  print_lock_updates() {
-                    ${localPkgs.jq}/bin/jq -r -s '
-                      def display($node):
-                        if $node == null then
-                          "missing"
-                        elif $node.locked.rev? != null then
-                          $node.locked.rev
-                        elif $node.locked.lastModified? != null then
-                          ($node.locked.lastModified | tostring)
-                        elif $node.locked.narHash? != null then
-                          $node.locked.narHash
-                        elif $node.locked? != null then
-                          ($node.locked | tojson)
-                        else
-                          "missing"
-                        end;
-
-                      .[0].nodes as $old
-                      | .[1].nodes as $new
-                      | [($old | keys[]), ($new | keys[])]
-                      | unique[]
-                      | . as $name
-                      | ($old[$name] // null) as $old_node
-                      | ($new[$name] // null) as $new_node
-                      | select(($old_node.locked // null) != ($new_node.locked // null))
-                      | "\($name): \(display($old_node)) -> \(display($new_node))"
-                    ' "$1" "$2"
-                  }
-
-                  old_lock="$(mktemp)"
-                  cp flake.lock "$old_lock"
-                  trap 'rm -f "$old_lock"' EXIT
-
                   echo "Updating flake.lock..."
                   nix flake update
-
-                  updates="$(print_lock_updates "$old_lock" flake.lock)"
-                  if [ -n "$updates" ]; then
-                    echo "Updated inputs:"
-                    echo "$updates"
-                  else
-                    echo "Updated inputs: none"
-                  fi
-
                   echo "Done! Run 'nix run .#switch' to apply changes."
                 ''
               );
