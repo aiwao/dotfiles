@@ -38,6 +38,7 @@ in
 
   catppuccin = {
     enable = true;
+    autoEnable = false;
     flavor = "mocha";
     nvim.enable = false;
     firefox.enable = false;
