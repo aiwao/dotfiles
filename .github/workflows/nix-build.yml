@@ -28,6 +28,7 @@ jobs:
               - 'nix/**'
               - '.github/workflows/nix-build.yml'
               - '.github/actions/setup-nix/**'
+              - '.github/scripts/**'
 
   build-ubuntu:
     needs: changes
@@ -46,10 +47,17 @@ jobs:
         if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/setup-nix
 
+      - name: Patch Nixpkgs crates.io User-Agent
+        id: patched-nixpkgs
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        run: bash ./.github/scripts/patch-nixpkgs-fetch-cargo-vendor.sh
+
       - name: Build Linux Home Manager configuration
         if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
         run: |
-          nix build .#homeConfigurations.aiwao-x86_64-linux.activationPackage \
+          nix build \
+            --override-input nixpkgs "path:${{ steps.patched-nixpkgs.outputs.path }}" \
+            .#homeConfigurations.aiwao-x86_64-linux.activationPackage \
             --print-build-logs \
             --show-trace
 
@@ -70,9 +78,16 @@ jobs:
         if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
         uses: ./.github/actions/setup-nix
 
+      - name: Patch Nixpkgs crates.io User-Agent
+        id: patched-nixpkgs
+        if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
+        run: bash ./.github/scripts/patch-nixpkgs-fetch-cargo-vendor.sh
+
       - name: Build Linux Home Manager configuration for aarch64
         if: needs.changes.outputs.nix == 'true' || github.event_name == 'workflow_dispatch'
         run: |
-          nix build .#homeConfigurations.aiwao-aarch64-linux.activationPackage \
+          nix build \
+            --override-input nixpkgs "path:${{ steps.patched-nixpkgs.outputs.path }}" \
+            .#homeConfigurations.aiwao-aarch64-linux.activationPackage \
             --print-build-logs \
             --show-trace
