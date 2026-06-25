@@ -39,7 +39,7 @@ def collect_manifest(system):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Collect package versions from flake home package modules.",
+        description="Collect package versions from evaluated Home Manager configs.",
     )
     parser.add_argument(
         "--system",

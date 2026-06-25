@@ -138,6 +138,25 @@ def compare_package_manifests(before_manifest, after_manifest):
     return version_updates, rebuilds, added, removed
 
 
+def format_systems(systems):
+    return ", ".join(f"`{system}`" for system in systems)
+
+
+def group_version_updates(version_updates):
+    groups = {}
+    for system, name, old_version, new_version in version_updates:
+        key = (name, old_version, new_version)
+        groups.setdefault(key, set()).add(system)
+
+    return sorted(
+        [
+            (sorted(systems), name, old_version, new_version)
+            for (name, old_version, new_version), systems in groups.items()
+        ],
+        key=lambda item: (item[1], item[2], item[3], item[0]),
+    )
+
+
 def print_package_summary(package_manifest_before, package_manifest_after):
     version_updates, rebuilds, added, removed = compare_package_manifests(
         package_manifest_before,
@@ -146,14 +165,19 @@ def print_package_summary(package_manifest_before, package_manifest_after):
 
     print("## Package updates")
     print()
-    print("Direct `home.packages` evaluated for configured systems.")
+    print("Evaluated Home Manager `config.home.packages` for selected systems.")
     print()
 
     if version_updates:
-        print("| System | Package | Before | After |")
+        print("| Systems | Package | Before | After |")
         print("| --- | --- | --- | --- |")
-        for system, name, old_version, new_version in version_updates:
-            print(f"| `{system}` | `{name}` | `{old_version}` | `{new_version}` |")
+        for systems, name, old_version, new_version in group_version_updates(
+            version_updates
+        ):
+            print(
+                f"| {format_systems(systems)} | `{name}` | "
+                f"`{old_version}` | `{new_version}` |"
+            )
     else:
         print("No direct package version changes detected.")
 
