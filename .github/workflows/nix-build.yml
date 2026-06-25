@@ -27,6 +27,7 @@ jobs:
               - 'flake.lock'
               - 'nix/**'
               - '.github/workflows/nix-build.yml'
+              - '.github/workflows/flake-update.yml'
               - '.github/actions/setup-nix/**'
 
   check:
