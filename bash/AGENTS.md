@@ -15,7 +15,7 @@ This file applies to Bash configuration under `bash/`.
 - Edit repository files, not linked files under the user's home directory.
 - Keep login-only behavior in `.bash_profile`.
 - Keep interactive shell behavior in `.bashrc`.
-- Avoid moving Fish or Zsh-specific setup into Bash files.
+- Avoid moving Zsh-specific setup into Bash files.
 
 ## Validation
 

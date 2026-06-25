@@ -219,8 +219,6 @@
                         nix run nixpkgs#system-manager -- switch --flake .#${username} --sudo
                       ''
                   }
-                  echo "Clearing fish cache..."
-                  rm -rf "$TMPDIR/fish-cache"
                   echo "Done!"
                 ''
               );

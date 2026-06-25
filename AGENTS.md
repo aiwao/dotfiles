@@ -22,7 +22,6 @@
   overlays.
 - `nvim/`: active Neovim configuration.
 - `nvim0.11.5/`: version-pinned or legacy Neovim configuration.
-- `fish/`: Fish shell configuration, functions, and themes.
 - `zsh/`: Zsh environment variables and sourced scripts.
 - `wezterm/`: WezTerm Lua configuration.
 - `bash/`: Bash profile and rc configuration.
