@@ -20,6 +20,7 @@ in
 {
   programs.neovim = {
     enable = true;
+    sideloadInitLua = true;
 
     plugins = [
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
