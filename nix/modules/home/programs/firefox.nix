@@ -144,6 +144,12 @@ in
           Placement = "toolbar";
         }
         {
+          Title = "ChatGPT";
+          URL = "https://chatgpt.com";
+          Favicon = "https://www.google.com/s2/favicons?domain=chatgpt.com";
+          Placement = "toolbar";
+        }
+        {
           Title = "オワタあんてな";
           URL = "https://owata.chann.net";
           Favicon = "https://owata.chann.net/assets/ico/favicon.ico";
