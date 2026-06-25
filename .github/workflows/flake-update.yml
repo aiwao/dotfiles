@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -19,6 +20,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - name: Cancel if automatic update pull request exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          existing_pr="$(
+            gh pr list \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --state open \
+              --label automatic-update \
+              --json title,url \
+              --jq '[.[] | select(.title | test("^[0-9a-f]{64}$"))] | .[0].url // ""'
+          )"
+
+          if [ -n "$existing_pr" ]; then
+            echo "Found existing automatic update pull request: $existing_pr"
+            gh run cancel "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY"
+            sleep 60
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
