@@ -41,6 +41,10 @@
       "rev": "301e431c7b618235f5447d54465c70934bd33668",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
+    "match.nvim": {
+      "rev": "aaba435e1f08cd63e6858e8f742ac9d01091be40",
+      "src": "https://github.com/ankushbhagats/match.nvim"
+    },
     "noice.nvim": {
       "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
       "src": "https://github.com/folke/noice.nvim"
