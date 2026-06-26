@@ -206,17 +206,29 @@
               type = "app";
               program = toString (
                 localPkgs.writeShellScript (if isDarwin then "darwin-switch" else "home-manager-switch") ''
-                  set -e
-                  echo "Building and switching to ${if isDarwin then "darwin" else "Home Manager"} configuration..."
+                  echo "Building and switching to ${if isDarwin then "darwin" else "Linux"} configuration..."
                   ${
                     if isDarwin then
                       ''
+                        set -e
                         sudo nix run nix-darwin -- switch --flake .#${hostname}
                       ''
                     else
                       ''
-                        nix run nixpkgs#home-manager -- switch --flake .#${username}-${system}
-                        nix run nixpkgs#system-manager -- switch --flake .#${username} --sudo
+                        set +e
+
+                        echo "Switching Home Manager configuration..."
+                        ${home-manager.packages.${system}.home-manager}/bin/home-manager switch --flake .#${username}-${system}
+                        home_manager_status=$?
+
+                        echo "Switching system-manager configuration..."
+                        ${system-manager.packages.${system}.default}/bin/system-manager switch --flake .#${username} --sudo
+                        system_manager_status=$?
+
+                        if [ "$home_manager_status" -ne 0 ] || [ "$system_manager_status" -ne 0 ]; then
+                          echo "Switch failed: home-manager=$home_manager_status system-manager=$system_manager_status" >&2
+                          exit 1
+                        fi
                       ''
                   }
                   echo "Done!"
