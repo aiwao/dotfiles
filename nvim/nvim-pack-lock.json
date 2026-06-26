@@ -86,7 +86,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "rustaceanvim": {
-      "rev": "6563b3e06bcd214dc999f7791d04176ad1af1402",
+      "rev": "58df5e6355f332b24920767e13400a6c79d5af77",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
