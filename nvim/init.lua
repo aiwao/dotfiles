@@ -5,7 +5,6 @@ vim.pack.add {
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/OXY2DEV/markview.nvim",
-  "https://github.com/ankushbhagats/match.nvim",
 }
 require("aiwao.plugin.rustaceanvim")
 require("aiwao.plugin.blink-cmp")
