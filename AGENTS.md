@@ -21,7 +21,6 @@
 - `nix/`: Nix configuration for Home Manager, nix-darwin, system-manager, and
   overlays.
 - `nvim/`: active Neovim configuration.
-- `nvim0.11.5/`: version-pinned or legacy Neovim configuration.
 - `zsh/`: Zsh environment variables and sourced scripts.
 - `wezterm/`: WezTerm Lua configuration.
 - `bash/`: Bash profile and rc configuration.
