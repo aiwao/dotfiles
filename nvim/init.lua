@@ -20,6 +20,7 @@ require("aiwao.plugin.intent-blankline")
 require("aiwao.plugin.comment")
 require("aiwao.plugin.crates")
 require("aiwao.plugin.fff")
+require("aiwao.plugin.match")
 --Load configs
 require("aiwao.config.generals")
 require("aiwao.config.codestyles")

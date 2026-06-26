@@ -21,20 +21,31 @@ vim.keymap.set({ "n", "v" }, "<leader>ff",
     fff.find_files()
   end
 )
+
+local function get_selected()
+  local mode = vim.api.nvim_get_mode().mode
+  if vim.tbl_contains({ "v", "V", "\22" }, mode) then
+    local start_pos = vim.fn.getpos("v")
+    local end_pos = vim.fn.getpos(".")
+    local region = vim.fn.getregion(start_pos, end_pos, { type = mode })
+    return table.concat(region, "\n")
+  end
+  return ""
+end
+
 vim.keymap.set({ "n", "v" }, "<leader>fg",
   function()
-    local current_selected = ""
-    local mode = vim.api.nvim_get_mode().mode
-    if vim.tbl_contains({ "v", "V", "\22" }, mode) then
-      local start_pos = vim.fn.getpos("v")
-      local end_pos = vim.fn.getpos(".")
-      local region = vim.fn.getregion(start_pos, end_pos, { type = mode })
-      current_selected = table.concat(region, "\n")
-    end
+    local current_selected = get_selected()
     fff.live_grep({ query = current_selected })
   end
 )
 vim.keymap.set({ "n", "v" }, "<leader>fb", function() Snacks.picker.buffers() end)
+
+vim.keymap.set({ "n", "v", "i" }, "<C-f>", function ()
+  local current_selected = get_selected()
+  vim.cmd("Match " .. current_selected)
+end)
+
 --LSP
 vim.keymap.set("n", "<leader>gd", function() Snacks.picker.lsp_definitions() end)
 vim.keymap.set("n", "<leader>gD", function() Snacks.picker.lsp_declarations() end)
