@@ -30,25 +30,6 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: echo "id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
 
-      - name: Cancel if automatic update pull request exists
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          existing_pr="$(
-            gh pr list \
-              --repo "$GITHUB_REPOSITORY" \
-              --base main \
-              --label automatic-update \
-              --json title,url \
-              --jq '[.[] | select(.title | test("^[0-9a-f]{64}$"))] | .[0].url // ""'
-          )"
-
-          if [ -n "$existing_pr" ]; then
-            echo "Found existing automatic update pull request: $existing_pr"
-            gh run cancel "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY"
-            sleep 60
-          fi
-
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
@@ -66,6 +47,26 @@ jobs:
       - name: Compute flake lock hash
         id: flake-lock
         run: echo "hash=$(sha256sum flake.lock | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+
+      - name: Cancel if automatic update pull request exists
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          FLAKE_LOCK_HASH: ${{ steps.flake-lock.outputs.hash }}
+        run: |
+          existing_pr="$(
+            gh pr list \
+              --repo "$GITHUB_REPOSITORY" \
+              --state open \
+              --limit 100 \
+              --json title,url \
+              --jq "[.[] | select(.title == \"$FLAKE_LOCK_HASH\")] | .[0].url // \"\""
+          )"
+
+          if [ -n "$existing_pr" ]; then
+            echo "Found existing automatic update pull request for $FLAKE_LOCK_HASH: $existing_pr"
+            gh run cancel "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY"
+            sleep 60
+          fi
 
       - name: Collect package manifests
         run: |
