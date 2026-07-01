@@ -26,6 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +54,7 @@
       self,
       nixpkgs,
       nix-darwin,
+      nix-homebrew,
       flake-parts,
       home-manager,
       system-manager,
@@ -256,6 +259,17 @@
             system = "aarch64-darwin";
 
             modules = [
+              nix-homebrew.darwinModules.nix-homebrew
+              {
+                nix-homebrew = {
+                  enable = true;
+                  enableRosetta = false;
+                  user = username;
+                  autoMigrate = true;
+                  mutableTaps = true;
+                };
+              }
+
               (import ./nix/modules/darwin/system.nix {
                 pkgs = mkPkgs { system = "aarch64-darwin"; };
                 inherit (nixpkgs) lib;
