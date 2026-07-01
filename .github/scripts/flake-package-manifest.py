@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -21,6 +22,9 @@ def nix_expr(system):
 
 
 def collect_manifest(system):
+    env = os.environ.copy()
+    env["NIXPKGS_ALLOW_INSECURE"] = "1"
+
     result = subprocess.run(
         [
             "nix",
@@ -31,6 +35,7 @@ def collect_manifest(system):
             nix_expr(system),
         ],
         check=True,
+        env=env,
         stdout=subprocess.PIPE,
         text=True,
     )
