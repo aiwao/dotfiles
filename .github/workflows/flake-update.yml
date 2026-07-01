@@ -1,4 +1,4 @@
-name: 'Maintenance: flake update'
+name: 'Automation: flake update'
 
 on:
   schedule:
