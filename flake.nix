@@ -61,6 +61,11 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixgl.url = "github:nix-community/nixGL";
+
+    nix-vite-plus = {
+      url = "github:ryoppippi/nix-vite-plus";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = 
@@ -76,6 +81,7 @@
       nix-index-database,
       neovim-nightly-overlay,
       nixgl,
+      nix-vite-plus,
       catppuccin,
       ...
     }: 
@@ -98,6 +104,7 @@
           config.allowUnfree = true;
           overlays = [
             neovim-nightly-overlay.overlays.default
+            nix-vite-plus.overlays.default
             (import ./nix/overlays/default.nix)
           ]
           ++ nixpkgs.lib.optionals isDarwin [
