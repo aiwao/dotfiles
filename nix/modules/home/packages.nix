@@ -9,8 +9,6 @@ in
   home.packages =
     with pkgs;
     [
-      rustdesk
-
       colima
       docker
       docker-compose
