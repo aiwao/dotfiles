@@ -44,6 +44,7 @@ in
       nodejs_24
       bun
       pnpm
+      vite-plus
     ];
 
     home.sessionVariables = {
