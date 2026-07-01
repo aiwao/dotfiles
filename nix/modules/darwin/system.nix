@@ -59,6 +59,13 @@ in
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
 
+  homebrew = {
+    enable = true;
+    casks = [
+      "rustdesk"
+    ];
+  };
+
   launchd.agents = {
     wezterm = {
       serviceConfig = {
