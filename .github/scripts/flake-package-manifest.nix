@@ -19,6 +19,9 @@ let
         flake.inputs.neovim-nightly-overlay.overlays.default
         (import ../../nix/overlays/default.nix)
       ]
+      ++ lib.optionals isDarwin [
+        flake.inputs.brew-nix.overlays.default
+      ]
       ++ lib.optionals isLinux [
         flake.inputs.nixgl.overlay
       ];
