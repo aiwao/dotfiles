@@ -28,6 +28,20 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
+    brew-nix = {
+      url = "github:BatteredBunny/brew-nix";
+      inputs = {
+        brew-api.follows = "brew-api";
+        nix-darwin.follows = "nix-darwin";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    brew-api = {
+      url = "github:BatteredBunny/brew-api";
+      flake = false;
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +69,7 @@
       nixpkgs,
       nix-darwin,
       nix-homebrew,
+      brew-nix,
       flake-parts,
       home-manager,
       system-manager,
@@ -84,6 +99,9 @@
           overlays = [
             neovim-nightly-overlay.overlays.default
             (import ./nix/overlays/default.nix)
+          ]
+          ++ nixpkgs.lib.optionals isDarwin [
+            brew-nix.overlays.default
           ]
           ++ extraOverlays;
         };
