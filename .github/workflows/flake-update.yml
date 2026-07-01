@@ -44,30 +44,6 @@ jobs:
           cp flake.lock "$RUNNER_TEMP/flake.lock.before"
           nix flake update
 
-      - name: Compute flake lock hash
-        id: flake-lock
-        run: echo "hash=$(sha256sum flake.lock | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
-
-      - name: Cancel if automatic update pull request exists
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          FLAKE_LOCK_HASH: ${{ steps.flake-lock.outputs.hash }}
-        run: |
-          existing_pr="$(
-            gh pr list \
-              --repo "$GITHUB_REPOSITORY" \
-              --state open \
-              --limit 100 \
-              --json title,url \
-              --jq "[.[] | select(.title == \"$FLAKE_LOCK_HASH\")] | .[0].url // \"\""
-          )"
-
-          if [ -n "$existing_pr" ]; then
-            echo "Found existing automatic update pull request for $FLAKE_LOCK_HASH: $existing_pr"
-            gh run cancel "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY"
-            sleep 60
-          fi
-
       - name: Collect package manifests
         run: |
           cp flake.lock "$RUNNER_TEMP/flake.lock.after"
@@ -109,16 +85,16 @@ jobs:
             echo '</details>'
           } > "$RUNNER_TEMP/flake-update-body.md"
 
-      - name: Create pull request
+      - name: Commit update and create pull request if needed
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ steps.app-token.outputs.token }}
-          branch: 'update-flake/${{ steps.flake-lock.outputs.hash }}'
+          branch: update-flake
           base: main
           delete-branch: true
-          commit-message: 'chore(nix): automatic flake update ${{ steps.flake-lock.outputs.hash }}'
+          commit-message: 'chore(nix): update flake.lock'
           committer: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
           author: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
-          title: '${{ steps.flake-lock.outputs.hash }}'
+          title: 'chore(nix): update flake.lock'
           body-path: ${{ runner.temp }}/flake-update-body.md
           labels: automatic-update
