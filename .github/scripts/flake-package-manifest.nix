@@ -17,6 +17,7 @@ let
     overlays =
       [
         flake.inputs.neovim-nightly-overlay.overlays.default
+        flake.inputs.nix-vite-plus.overlays.default
         (import ../../nix/overlays/default.nix)
       ]
       ++ lib.optionals isDarwin [
