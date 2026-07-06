@@ -1,9 +1,13 @@
 {
   pkgs,
+  config,
   lib,
   homedir,
   ...
 }:
+let
+  abbrFile = "${config.xdg.configHome}/zsh-abbr/user-abbreviations";
+in
 {
   programs.zsh = {
     enable = true;
@@ -80,12 +84,16 @@
   home.file."./.zshenv".force = true;
 
   home.activation.zshAbbr = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.zsh}/bin/zsh -c "
-      source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh && (
-        abbr ll='ls -hl' || true;
-        abbr la='ls -hAl' || true;
-        abbr lt='ls --tree' || true;
-      )
-    "
+    export HOME=${lib.escapeShellArg config.home.homeDirectory}
+    export XDG_CONFIG_HOME=${lib.escapeShellArg config.xdg.configHome}
+    export ABBR_USER_ABBREVIATIONS_FILE=${lib.escapeShellArg abbrFile}
+
+    run mkdir -p "$(${pkgs.coreutils}/bin/dirname "$ABBR_USER_ABBREVIATIONS_FILE")"
+    run ${pkgs.zsh}/bin/zsh -f -c ${lib.escapeShellArg ''
+      source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
+      abbr --force --quieter "ll=ls -hl"
+      abbr --force --quieter "la=ls -hAl"
+      abbr --force --quieter "lt=ls --tree"
+    ''}
   '';
 }
