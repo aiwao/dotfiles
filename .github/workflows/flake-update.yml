@@ -1,6 +1,11 @@
 name: 'Automation: flake update'
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - flake.lock
   schedule:
     # 06:00 JST
     - cron: '0 21 * * *'
