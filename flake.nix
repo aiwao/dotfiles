@@ -101,7 +101,10 @@
         in
         import nixpkgs {
           inherit system;
-          config.allowUnfree = true;
+          config = {
+            allowUnfree = true;
+            android_sdk.accept_license = true;
+          };
           overlays = [
             neovim-nightly-overlay.overlays.default
             nix-vite-plus.overlays.default
