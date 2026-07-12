@@ -7,6 +7,7 @@
       glib.bin
     ]
     ++ [
+      reaper
       xclip
       rustdesk
       gimp
