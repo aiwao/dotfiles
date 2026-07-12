@@ -4,6 +4,16 @@
   ...
 }: {
   environment.etc = {
+    "apparmor.d/nix-bwrap" = {
+      text = ''
+        abi <abi/4.0>,
+        include <tunables/global>
+
+        profile nix-bwrap ${pkgs.bubblewrap}/bin/bwrap flags=(unconfined) {
+          userns,
+        }
+      '';
+    };
     subuid = {
       text = ''
         ${username}:100000:65536
@@ -15,6 +25,18 @@
         ${username}:100000:65536
       '';
       replaceExisting = true;
+    };
+  };
+
+  systemd.services.nix-bwrap-apparmor = {
+    enable = true;
+    description = "Allow user namespaces for Nix bubblewrap";
+    wantedBy = [ "system-manager.target" ];
+    after = [ "apparmor.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "/usr/sbin/apparmor_parser --replace /etc/apparmor.d/nix-bwrap";
     };
   };
 
