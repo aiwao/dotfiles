@@ -1,4 +1,15 @@
 { pkgs, lib, ... }:
+let
+  reaperWithPipeWireJack = pkgs.symlinkJoin {
+    name = "reaper-with-pipewire-jack";
+    paths = [ pkgs.reaper ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/reaper" \
+        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.pipewire.jack ]}"
+    '';
+  };
+in
 {
   home.packages =
     with pkgs;
@@ -7,7 +18,7 @@
       glib.bin
     ]
     ++ [
-      reaper
+      reaperWithPipeWireJack
       xclip
       rustdesk
       gimp
