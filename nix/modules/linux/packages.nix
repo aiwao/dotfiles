@@ -18,9 +18,9 @@ in
       glib.bin
       yabridge
       yabridgectl
+      wine
     ]
     ++ [
-      wine
       reaperWithPipeWireJack
       xclip
       rustdesk
