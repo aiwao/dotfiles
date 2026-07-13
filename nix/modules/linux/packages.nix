@@ -16,8 +16,11 @@ in
     lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
       android-studio-full
       glib.bin
+      yabridge
+      yabridgectl
     ]
     ++ [
+      wine
       reaperWithPipeWireJack
       xclip
       rustdesk
