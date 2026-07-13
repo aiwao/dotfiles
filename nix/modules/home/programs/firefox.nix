@@ -170,6 +170,7 @@ in
       isDefault = true;
       
       settings = {
+        "browser.download.useDownloadDir" = false;
         "intl.locale.requested" = "ja";
         "intl.accept_languages" = "ja,en-US,en";
       };
