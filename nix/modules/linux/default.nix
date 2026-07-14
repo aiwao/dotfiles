@@ -12,6 +12,7 @@
     ./packages.nix
     ./dotfiles.nix
     ./input-method.nix
+    ./programs
     ./systemd.nix
   ];
 
