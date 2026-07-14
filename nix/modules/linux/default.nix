@@ -11,6 +11,7 @@
   imports = [
     ./packages.nix
     ./dotfiles.nix
+    ./input-method.nix
     ./systemd.nix
   ];
 
