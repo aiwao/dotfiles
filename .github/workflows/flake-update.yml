@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - flake.lock
   schedule:
     # 06:00 JST
     - cron: '0 21 * * *'
@@ -18,9 +16,61 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  discover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      inputs: ${{ steps.inputs.outputs.inputs }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: main
+
+      - name: Discover flake inputs
+        id: inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          inputs="$(
+            jq -ce '
+              .nodes[.root].inputs
+              | to_entries
+              | map(select(.value | type == "string") | .key)
+              | sort
+            ' flake.lock
+          )"
+
+          if [ "$(jq 'length' <<< "$inputs")" -eq 0 ]; then
+            echo 'No independently updateable root flake inputs found' >&2
+            exit 1
+          fi
+
+          invalid_inputs="$(
+            jq -r '.[] | select(test("^[A-Za-z0-9._-]+$") | not)' <<< "$inputs"
+          )"
+          if [ -n "$invalid_inputs" ]; then
+            echo 'Flake input names must only contain A-Z, a-z, 0-9, dot, underscore, or hyphen:' >&2
+            echo "$invalid_inputs" >&2
+            exit 1
+          fi
+
+          echo "inputs=$inputs" >> "$GITHUB_OUTPUT"
+
   update:
+    name: Update ${{ matrix.input }}
+    needs: discover
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        input: ${{ fromJSON(needs.discover.outputs.inputs) }}
+    env:
+      FLAKE_INPUT: ${{ matrix.input }}
     steps:
       - name: Generate GitHub App token
         id: app-token
@@ -38,20 +88,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
-          ref: ${{ github.ref_name }}
+          ref: main
           token: ${{ steps.app-token.outputs.token }}
 
       - name: Setup Nix
         uses: ./.github/actions/setup-nix
 
       - name: Update flake lock
+        id: update
         run: |
+          set -euo pipefail
+
           cp flake.lock "$RUNNER_TEMP/flake.lock.before"
-          nix flake update
+          nix flake update "$FLAKE_INPUT"
+          cp flake.lock "$RUNNER_TEMP/flake.lock.after"
+
+          if git diff --quiet -- flake.lock; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Collect package manifests
+        if: matrix.input == 'nixpkgs' && steps.update.outputs.changed == 'true'
         run: |
-          cp flake.lock "$RUNNER_TEMP/flake.lock.after"
+          set -euo pipefail
 
           restore_lock() {
             cp "$RUNNER_TEMP/flake.lock.after" flake.lock
@@ -70,11 +131,20 @@ jobs:
 
       - name: Create pull request body
         run: |
-          python3 -B .github/scripts/flake-update-summary.py \
-            "$RUNNER_TEMP/flake.lock.before" \
-            flake.lock \
-            --package-manifest-before "$RUNNER_TEMP/flake-packages.before.json" \
-            --package-manifest-after "$RUNNER_TEMP/flake-packages.after.json" \
+          set -euo pipefail
+
+          summary_args=(
+            "$RUNNER_TEMP/flake.lock.before"
+            flake.lock
+          )
+          if [ -f "$RUNNER_TEMP/flake-packages.before.json" ]; then
+            summary_args+=(
+              --package-manifest-before "$RUNNER_TEMP/flake-packages.before.json"
+              --package-manifest-after "$RUNNER_TEMP/flake-packages.after.json"
+            )
+          fi
+
+          python3 -B .github/scripts/flake-update-summary.py "${summary_args[@]}" \
             > "$RUNNER_TEMP/flake-update-summary.md"
 
           {
@@ -91,16 +161,16 @@ jobs:
           } > "$RUNNER_TEMP/flake-update-body.md"
 
       - name: Commit update and create pull request if needed
-        if: github.ref_name == 'main' || github.ref_name == 'automation/update-flake'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ steps.app-token.outputs.token }}
-          branch: automation/update-flake
+          branch: automation/update-flake/${{ matrix.input }}
           base: main
           delete-branch: true
-          commit-message: 'chore(nix): update flake.lock'
+          add-paths: flake.lock
+          commit-message: 'chore(nix): update ${{ matrix.input }} input'
           committer: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
           author: '${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.app-user.outputs.id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
-          title: 'chore(nix): update flake.lock'
+          title: 'chore(nix): update ${{ matrix.input }} input'
           body-path: ${{ runner.temp }}/flake-update-body.md
           labels: automatic-update
