@@ -1,12 +1,10 @@
 --Oil
 local Oil = require("oil")
-vim.keymap.set("n", "<leader>t", function() Oil.open_float() end, { silent = true })
+vim.keymap.set("n", "<leader>t", function() Oil.open() end, { silent = true })
 vim.keymap.set("n", "<Esc>", function ()
   local winid = vim.api.nvim_get_current_win()
   local buf = vim.api.nvim_win_get_buf(winid)
-  local is_oil = vim.bo[buf].filetype == "oil"
-  local is_float = vim.api.nvim_win_get_config(winid).relative ~= ""
-  if (is_oil and is_float) then
+  if (vim.bo[buf].filetype == "oil") then
     Oil.close()
   end
 end)
