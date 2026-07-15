@@ -2,7 +2,15 @@
   pkgs,
   username,
   ...
-}: {
+}:
+let
+  dockerDaemonConfig = (pkgs.formats.json { }).generate "docker-daemon.json" {
+    group = "docker";
+    hosts = [ "fd://" ];
+    "log-driver" = "journald";
+  };
+in
+{
   environment.etc = {
     "apparmor.d/nix-bwrap" = {
       text = ''
@@ -25,6 +33,41 @@
         ${username}:100000:65536
       '';
       replaceExisting = true;
+    };
+  };
+
+  users.groups.docker.members = [ username ];
+
+  systemd.sockets.docker = {
+    enable = true;
+    description = "Docker Socket for the API";
+    wantedBy = [ "sockets.target" ];
+    socketConfig = {
+      ListenStream = [ "/run/docker.sock" ];
+      SocketMode = "0660";
+      SocketUser = "root";
+      SocketGroup = "docker";
+    };
+  };
+
+  systemd.services.docker = {
+    enable = true;
+    description = "Docker Application Container Engine";
+    wantedBy = [ "multi-user.target" ];
+    wants = [ "network-online.target" ];
+    after = [
+      "network-online.target"
+      "docker.socket"
+    ];
+    requires = [ "docker.socket" ];
+    path = [
+      pkgs.apparmor-parser
+      pkgs.kmod
+    ];
+    serviceConfig = {
+      Type = "notify";
+      ExecStart = "${pkgs.docker}/bin/dockerd --config-file=${dockerDaemonConfig}";
+      ExecReload = "${pkgs.procps}/bin/kill -s HUP $MAINPID";
     };
   };
 
