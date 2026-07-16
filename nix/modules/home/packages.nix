@@ -44,6 +44,7 @@ in
       bun
       pnpm
       vite-plus
+      nh
     ];
 
     home.sessionVariables = {
