@@ -55,7 +55,7 @@ in
         emmet-language-server # Emmet
         prisma-language-server # Prisma
         stylelint # CSS linter
-        stylelint-lsp # Stylelint LSP
+        # stylelint-lsp # Stylelint LSP # commentout due to pnpm-9.15.9 vuln
         svelte-language-server # Svelte
         tailwindcss-language-server # Tailwind CSS
         textlint # Natural language linter
