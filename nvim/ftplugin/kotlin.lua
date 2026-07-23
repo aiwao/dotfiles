@@ -1,1 +1,1 @@
-vim.lsp.enable("ktlsp")
+require("aiwao.lsp.ktlsp").enable()

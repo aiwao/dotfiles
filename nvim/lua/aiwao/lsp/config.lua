@@ -3,7 +3,7 @@ local configs = {}
 
 ---@type string[]
 local module_list = {
-  "efm", "css", "web", "rust", "java"
+  "efm", "css", "web", "rust", "java", "ktlsp"
 }
 
 for _, m in ipairs(module_list) do
