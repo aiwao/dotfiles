@@ -77,6 +77,12 @@ in
           installation_mode = "force_installed";
           updates_disabled = true;
         };
+
+        "firefox@tampermonkey.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4797143/tampermonkey-5.5.0.xpi";
+          installation_mode = "force_installed";
+          updates_disabled = true;
+        };
       };
 
       # Extension configuration 
