@@ -28,6 +28,13 @@ in
 
   users.groups.docker.members = [ username ];
 
+  security.wrappers.mullvad-vpn-sandbox = {
+    setuid = true;
+    owner = "root";
+    group = "root";
+    source = "${pkgs.electron}/libexec/electron/chrome-sandbox";
+  };
+
   systemd.sockets.docker = {
     enable = true;
     description = "Docker Socket for the API";
