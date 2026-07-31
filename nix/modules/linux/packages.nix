@@ -37,6 +37,11 @@ let
   };
 in
 {
+  xdg.autostart = {
+    enable = true;
+    entries = [ "${mullvadVpn}/share/applications/mullvad-vpn.desktop" ];
+  };
+
   home.packages =
     with pkgs;
     lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
