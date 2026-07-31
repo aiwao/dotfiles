@@ -51,37 +51,43 @@ in
         "uBlock0@raymondhill.net" = {
           install_url       = moz "ublock-origin";
           installation_mode = "force_installed";
+          private_browsing  = true;
           updates_disabled  = true;
         };
 
         "{60f82f00-9ad5-4de5-b31c-b16a47c51558}" = {
-          install_url = moz "cookie-quick-manager";
+          install_url       = moz "cookie-quick-manager";
           installation_mode = "force_installed";
-          updates_disabled = true;
+          private_browsing  = true;
+          updates_disabled  = true;
         };
 
         "firefox-extension@deepl.com" = {
-          install_url = moz "deepl-translate";
+          install_url       = moz "deepl-translate";
           installation_mode = "force_installed";
-          updates_disabled = true;
+          private_browsing  = true;
+          updates_disabled  = true;
         };
 
         "FirefoxColor@mozilla.com" = {
-          install_url = moz "firefox-color";
+          install_url       = moz "firefox-color";
           installation_mode = "force_installed";
-          updates_disabled = true;
+          private_browsing  = true;
+          updates_disabled  = true;
         };
 
         "remote-edit-bridge@140.lol" = {
-          install_url = "https://github.com/aiwao/wbsb-remote-edit/releases/download/v0.0.2/wbsb-remote-edit-firefox-0.0.2.xpi";
+          install_url       = "https://github.com/aiwao/wbsb-remote-edit/releases/download/v0.0.2/wbsb-remote-edit-firefox-0.0.2.xpi";
           installation_mode = "force_installed";
-          updates_disabled = true;
+          private_browsing  = true;
+          updates_disabled  = true;
         };
 
         "firefox@tampermonkey.net" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4797143/tampermonkey-5.5.0.xpi";
+          install_url       = "https://addons.mozilla.org/firefox/downloads/file/4797143/tampermonkey-5.5.0.xpi";
           installation_mode = "force_installed";
-          updates_disabled = true;
+          private_browsing  = true;
+          updates_disabled  = true;
         };
       };
 
