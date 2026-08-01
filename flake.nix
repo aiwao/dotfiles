@@ -89,6 +89,28 @@
       username = "aiwao";
       darwinHomedir = "/Users/${username}";
       linuxHomedir = "/home/${username}";
+      linuxNvidiaDriver = {
+        version = "595.84";
+        sha256 = "sha256-mcQE5SExvye8ptoCaNzOPr7cenOrF0BxqZXPGmxeugY=";
+      };
+
+      nixglNvidiaOverlay =
+        linuxSystem: final: _:
+        nixpkgs.lib.optionalAttrs (linuxSystem == "x86_64-linux") {
+          nixgl =
+            let
+              patchedNixgl = final.applyPatches {
+                name = "nixgl-patched";
+                src = nixgl;
+                patches = [ ./nix/patches/nixgl-nvidia-driver.patch ];
+              };
+            in
+            import patchedNixgl {
+              pkgs = final;
+              nvidiaVersion = linuxNvidiaDriver.version;
+              nvidiaHash = linuxNvidiaDriver.sha256;
+            };
+        };
 
       # Create pkgs with overlays
       mkPkgs =
@@ -122,7 +144,10 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = mkPkgs {
             system = linuxSystem;
-            extraOverlays = [ nixgl.overlay ];
+            extraOverlays = [
+              nixgl.overlay
+              (nixglNvidiaOverlay linuxSystem)
+            ];
           };
 
 
