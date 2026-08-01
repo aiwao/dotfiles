@@ -29,5 +29,8 @@ in
 
     # Cobra-cli
     link_force "${dotfilesDir}/.cobra.yaml" "${configHome}/.cobra.yaml"
+
+    # IdeaVim
+    link_force "${dotfilesDir}/.ideavimrc" "${homeDirectory}/.ideavimrc"
   '';
 }

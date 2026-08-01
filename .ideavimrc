@@ -1,0 +1,85 @@
+" Keep the common editor behavior aligned with nvim/lua/aiwao/config/generals.lua.
+let mapleader = " "
+
+set number
+set relativenumber
+set cursorline
+set wrap
+set clipboard=unnamedplus,ideaput
+set ideajoin
+
+" Comment.nvim's gc/gcc mappings.
+set commentary
+
+" File explorer and finders.
+nmap <leader>t <Action>(SelectInProjectView)
+nmap <leader>ff <Action>(GotoFile)
+vmap <leader>ff <Action>(GotoFile)
+nmap <leader>fg <Action>(FindInPath)
+vmap <leader>fg <Action>(FindInPath)
+nmap <leader>fb <Action>(Switcher)
+vmap <leader>fb <Action>(Switcher)
+nmap <C-f> <Action>(Find)
+vmap <C-f> <Action>(Find)
+imap <C-f> <Action>(Find)
+
+" Language navigation.
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gD <Action>(GotoDeclarationOnly)
+nmap <leader>gr <Action>(FindUsages)
+nmap <leader>gI <Action>(GotoImplementation)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+
+" IntelliJ uses one call hierarchy view for callers and callees. The toolbar
+" in that view switches between incoming and outgoing calls.
+nmap <leader>inc <Action>(CallHierarchy)
+nmap <leader>oug <Action>(CallHierarchy)
+
+nmap <leader>sym <Action>(FileStructurePopup)
+nmap <leader>SYM <Action>(GotoSymbol)
+
+" Editor tabs (Neovim buffers).
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>bn <Action>(NextTab)
+nmap <leader>bb <Action>(PreviousTab)
+nmap <leader>bm <Action>(Switcher)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+nmap <leader>bl <Action>(CloseAllToTheLeft)
+nmap <leader>br <Action>(CloseAllToTheRight)
+
+" Diagnostics and editing.
+nmap <leader>zz <Action>(ShowErrorDescription)
+nnoremap U <C-r>
+nmap <leader>fm <Action>(ReformatCode)
+
+" Display toggles with direct IntelliJ equivalents.
+nnoremap <leader>uw :set invwrap<CR>
+nnoremap <leader>uL :set invrelativenumber<CR>
+nnoremap <leader>ul :set invnumber<CR>
+nmap <leader>ub <Action>(QuickChangeScheme)
+nmap <leader>uh <Action>(ToggleInlayHintsGloballyAction)
+nmap <leader>ug <Action>(EditorToggleShowIndentLines)
+
+" Completion. Tab, Shift-Tab and Enter are handled by IntelliJ's lookup popup.
+imap <C-Space> <Action>(CodeCompletion)
+imap <C-p> <Action>(EditorLookupUp)
+imap <C-n> <Action>(EditorLookupDown)
+imap <C-k> <Action>(ParameterInfo)
+
+" Java build/debug equivalents. Unlike the Neovim F6 mapping, IntelliJ has
+" separate actions for starting a debug session and resuming it (F9).
+nmap <F5> <Action>(CompileDirty)
+nmap <F6> <Action>(Debug)
+
+" Disable accidental paging, as in the Neovim configuration.
+nnoremap <PageUp> <Nop>
+vnoremap <PageUp> <Nop>
+onoremap <PageUp> <Nop>
+inoremap <PageUp> <Nop>
+nnoremap <PageDown> <Nop>
+vnoremap <PageDown> <Nop>
+onoremap <PageDown> <Nop>
+inoremap <PageDown> <Nop>
+
+" There are no stable IdeaVim equivalents for the Neovim spell, diagnostics,
+" conceal, Treesitter and dim toggles (<leader>us/ud/uc/uT/uD).
