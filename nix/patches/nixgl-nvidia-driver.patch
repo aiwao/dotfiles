@@ -1,0 +1,6 @@
+diff --git a/nixGL.nix b/nixGL.nix
+index 4f48d5f..80e8e4d 100644
+--- a/nixGL.nix
++++ b/nixGL.nix
+@@ -90 +89,0 @@ let
+-        kernel = null;

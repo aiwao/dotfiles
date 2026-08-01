@@ -1,5 +1,6 @@
 { pkgs, lib, ... }:
 let
+  isX86Linux = pkgs.stdenv.hostPlatform.system == "x86_64-linux";
   mullvadSandbox = "/run/wrappers/bin/mullvad-vpn-sandbox";
   mullvadElectron = pkgs.runCommand "mullvad-electron-${pkgs.electron.version}" { } ''
     mkdir -p "$out/bin"
@@ -35,6 +36,9 @@ let
         --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.pipewire.jack ]}"
     '';
   };
+  nixGLNvidia = pkgs.writeShellScriptBin "nixGLNvidia" ''
+    exec ${lib.getExe pkgs.nixgl.nixGLNvidia} "$@"
+  '';
 in
 {
   xdg.autostart = {
@@ -44,11 +48,12 @@ in
 
   home.packages =
     with pkgs;
-    lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
+    lib.optionals isX86Linux [
       glib.bin
       yabridge
       yabridgectl
       wine
+      nixGLNvidia
     ]
     ++ [
       mullvadVpn
