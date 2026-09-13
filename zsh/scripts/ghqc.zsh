@@ -1,13 +1,21 @@
 ghqc() {
   if [[ $# -le 1 ]]; then
-    echo "Usage: ghqc <name> <gh repo create arguments>"
+    echo "Usage: ghqc [<owner>/]<name> <gh repo create arguments>"
     return 1
   fi
   local HOST="github.com"
   local name=$1
   local username="$(git_remote_username $HOST)" || return 1
   local ghq_root="$(ghq root)" || return 1
-  local repository="$HOST/$username/$name"
+  local owner=$username
+  local repository_name=$name
+
+  if [[ "$name" == */* ]]; then
+    owner="${name%%/*}"
+    repository_name="${name#*/}"
+  fi
+
+  local repository="$HOST/$owner/$repository_name"
 
   ghq create "$name" || return 1
   gh repo create "$@" || {
